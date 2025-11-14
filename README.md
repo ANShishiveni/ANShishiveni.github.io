@@ -1,5 +1,48 @@
 # My Landing Page
 
+## Overview
+A GitHub Pages-compatible portfolio website showcasing projects fetched from your GitHub profile, with a manual configuration fallback.
+
+## Features
+- Responsive layout optimized for GitHub Pages
+- Projects section with titles, descriptions, technologies, demos, and repo links
+- Dynamic fetching from GitHub API (with manual `resources/projects.json` fallback)
+- Consistent color scheme and professional typography (Inter)
+- Mobile-first design with optimized asset paths
+
+## Configuration
+1. Set your GitHub username in `script.js`:
+   - `const GITHUB_USERNAME = "your-username";`
+2. Optional manual projects:
+   - Edit `resources/projects.json` to add custom entries or overrides.
+3. GitHub Pages:
+   - For user site: repo must be named `your-username.github.io`.
+   - For project site: any repo name; set `_config.yml` `baseurl: "/<repo-name>"` and keep all asset paths relative (already done).
+
+## Deployment
+- Push to `main` branch.
+- Enable GitHub Pages:
+  - Settings → Pages → Build from `GitHub Actions` or from `main` (root).
+- If using project site, update `_config.yml` `baseurl` as noted.
+
+## Asset Paths
+- All local assets use relative paths (e.g., `resources/...`) to work under both root and subpath deployments.
+- Thumbnails auto-resolve from `resources/projects/<repo-name>.png`; if missing, a placeholder is used.
+
+## Development
+- Start a local server:
+  ```
+  python -m http.server 5500
+  ```
+- Visit `http://localhost:5500/`.
+
+## CI
+- Asset path checks via PowerShell script `scripts/check-assets.ps1` and workflow `.github/workflows/asset-check.yml`.
+
+## Notes
+- EmailJS requires replacing placeholders in `script.js`.
+- To improve performance, consider optimizing images in `resources/` and adding `loading="lazy"` to non-hero images.
+
 This project is a static landing page built with plain HTML, CSS, and JavaScript. It uses Tailwind CSS, Font Awesome, and EmailJS via CDNs. There is no build system; the site is served as static files.
 
 ## Path Resolution Strategy

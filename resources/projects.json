@@ -1,0 +1,12 @@
+[
+  {
+    "name": "My_Landing_Page",
+    "title": "Personal Landing Page",
+    "description": "Responsive landing page with Tailwind, form validation, and EmailJS.",
+    "technologies": ["HTML", "CSS", "JavaScript", "Tailwind"],
+    "repoUrl": "https://github.com/your-username/My_Landing_Page",
+    "demoUrl": "https://your-username.github.io/",
+    "thumbnail": "resources/profile.png",
+    "slug": "my-landing-page"
+  }
+]

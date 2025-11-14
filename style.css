@@ -40,3 +40,60 @@
     hyphens: auto;
     max-width: 100%;
 }
+
+/* Professional typography override */
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+}
+
+/* Project card tweaks */
+.project-thumb {
+    background-color: #f3f4f6;
+}
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 18px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tools section scroller styling */
+#tools .tools-scroller {
+  overflow: hidden;
+  position: relative;
+  padding: 8px 0;
+}
+
+#tools .tools-track {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: max-content;
+  will-change: transform;
+  animation: tools-scroll-right 30s linear infinite;
+}
+
+#tools .tile {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  min-height: 64px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#tools .tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes tools-scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
