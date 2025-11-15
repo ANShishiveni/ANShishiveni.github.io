@@ -4,7 +4,7 @@
     "title": "Personal Landing Page",
     "description": "Responsive landing page with Tailwind, to showcase my Projects on Github.",
     "technologies": ["HTML", "CSS", "JavaScript", "Tailwind"],
-    "repoUrl": "https://github.com/ANShishiveni",
+    "repoUrl": "https://github.com/ANShishiveni/ANShishiveni.github.io",
     "demoUrl": "https://ANShishiveni.github.io/",
     "thumbnail": "resources/LP.png",
     "snapshots": [

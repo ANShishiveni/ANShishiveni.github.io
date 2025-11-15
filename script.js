@@ -199,6 +199,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             img.className = 'w-full h-40 object-cover project-thumb';
             img.loading = 'lazy';
             img.onerror = () => { img.src = placeholderThumb; };
+            if (item.snapshots && item.snapshots.length) {
+                img.classList.add('cursor-pointer');
+                img.onclick = () => openSnapshots(item);
+            }
 
             const body = document.createElement('div');
             body.className = 'p-6 flex-1 flex flex-col';
