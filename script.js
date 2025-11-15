@@ -77,165 +77,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 })();
 
 // Form validation and submission
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    // Form validation
-    function validateField(field, errorElement, validationRules) {
-        const value = field.value.trim();
-        let isValid = true;
-        let errorMessage = '';
-
-        // Check if field is required
-        if (field.hasAttribute('required') && !value) {
-            isValid = false;
-            errorMessage = 'This field is required.';
-        }
-
-        // Email validation
-        if (field.type === 'email' && value) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(value)) {
-                isValid = false;
-                errorMessage = 'Please enter a valid email address.';
-            }
-        }
-
-        // Subject validation (prevent spam)
-        if (field.id === 'subject' && value) {
-            if (value.length < 3) {
-                isValid = false;
-                errorMessage = 'Subject must be at least 3 characters long.';
-            }
-            if (value.length > 100) {
-                isValid = false;
-                errorMessage = 'Subject must be less than 100 characters.';
-            }
-        }
-
-        // Message validation
-        if (field.id === 'message' && value) {
-            if (value.length < 10) {
-                isValid = false;
-                errorMessage = 'Message must be at least 10 characters long.';
-            }
-            if (value.length > 1000) {
-                isValid = false;
-                errorMessage = 'Message must be less than 1000 characters.';
-            }
-        }
-
-        // Update UI
-        if (isValid) {
-            field.classList.remove('border-red-500');
-            field.classList.add('border-gray-300');
-            errorElement.classList.add('hidden');
-        } else {
-            field.classList.remove('border-gray-300');
-            field.classList.add('border-red-500');
-            errorElement.textContent = errorMessage;
-            errorElement.classList.remove('hidden');
-        }
-
-        return isValid;
-    }
-
-    // Real-time validation
-    const formFields = contactForm.querySelectorAll('input, textarea');
-    formFields.forEach(field => {
-        field.addEventListener('blur', () => {
-            const errorElement = document.getElementById(field.id + 'Error');
-            if (errorElement) {
-                validateField(field, errorElement);
-            }
-        });
-    });
-
-    // Form submission
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        // Honeypot check (spam protection)
-        const honeypot = document.getElementById('honeypot');
-        if (honeypot.checked) {
-            console.log('Bot detected');
-            return;
-        }
-
-        // Validate all fields
-        let isFormValid = true;
-        const fieldsToValidate = [
-            { field: document.getElementById('name'), error: document.getElementById('nameError') },
-            { field: document.getElementById('email'), error: document.getElementById('emailError') },
-            { field: document.getElementById('subject'), error: document.getElementById('subjectError') },
-            { field: document.getElementById('message'), error: document.getElementById('messageError') },
-            { field: document.getElementById('agree'), error: document.getElementById('agreeError') }
-        ];
-
-        fieldsToValidate.forEach(({ field, error }) => {
-            if (!validateField(field, error)) {
-                isFormValid = false;
-            }
-        });
-
-        if (!isFormValid) {
-            return;
-        }
-
-        // Show loading state
-        const submitBtn = document.getElementById('submitBtn');
-        const submitText = document.getElementById('submitText');
-        const submitSpinner = document.getElementById('submitSpinner');
-        const formSuccess = document.getElementById('formSuccess');
-        const formError = document.getElementById('formError');
-
-        submitBtn.disabled = true;
-        submitText.textContent = 'Sending...';
-        submitSpinner.classList.remove('hidden');
-        formSuccess.classList.add('hidden');
-        formError.classList.add('hidden');
-
-        // Prepare form data
-        const formData = {
-            name: document.getElementById('name').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            subject: document.getElementById('subject').value.trim(),
-            message: document.getElementById('message').value.trim(),
-            to: 'absalomshishiveni67@mail.com'
-        };
-
-        try {
-            // Initialize EmailJS
-            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-
-            // Send email using EmailJS
-            const templateParams = {
-                to_email: 'absalomshishiveni67@mail.com',
-                from_name: formData.name,
-                from_email: formData.email,
-                subject: formData.subject,
-                message: formData.message
-            };
-
-            await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams);
-
-            // Show success message
-            formSuccess.textContent = 'Thank you! Your message has been sent successfully. I will get back to you soon.';
-            formSuccess.classList.remove('hidden');
-            contactForm.reset();
-
-        } catch (error) {
-            console.error('Email sending failed:', error);
-            // Show error message
-            formError.textContent = 'Sorry, there was an error sending your message. Please try again or contact me directly.';
-            formError.classList.remove('hidden');
-        } finally {
-            // Reset button state
-            submitBtn.disabled = false;
-            submitText.textContent = 'Send Message';
-            submitSpinner.classList.add('hidden');
-        }
-    });
-}
+// Contact form functionality removed as requested.
 
 // Projects: GitHub API integration and manual fallback
 (function () {
@@ -261,6 +103,88 @@ if (contactForm) {
         span.className = 'inline-block bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded';
         span.textContent = text;
         return span;
+    }
+
+    // Snapshots modal utilities
+    function ensureSnapshotModal() {
+        let modal = document.getElementById('snapshotModal');
+        if (modal) return modal;
+
+        modal = document.createElement('div');
+        modal.id = 'snapshotModal';
+        modal.className = 'fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 hidden';
+        modal.setAttribute('role', 'dialog');
+        modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('aria-label', 'Project snapshots');
+        modal.innerHTML = `
+          <div class="bg-white rounded-xl shadow-2xl w-11/12 max-w-3xl relative" tabindex="0">
+            <button id="snapshotClose" class="absolute top-3 right-3 p-2 rounded-full bg-red-600 hover:bg-red-700 text-white shadow" aria-label="Close snapshots">
+              ×
+            </button>
+            <div class="p-4">
+              <h3 id="snapshotTitle" class="text-xl font-semibold mb-2 text-teal-700"></h3>
+              <div class="relative">
+                <img id="snapshotImage" src="" alt="Project snapshot" class="w-full max-h-[60vh] object-contain rounded-lg bg-gray-50 border" />
+                <button id="snapshotPrev" class="absolute left-3 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white rounded-full p-2 shadow" aria-label="Previous snapshot">‹</button>
+                <button id="snapshotNext" class="absolute right-3 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white rounded-full p-2 shadow" aria-label="Next snapshot">›</button>
+              </div>
+              <div id="snapshotDots" class="flex justify-center gap-2 mt-3"></div>
+            </div>
+          </div>`;
+        document.body.appendChild(modal);
+        return modal;
+    }
+
+    function openSnapshots(item) {
+        const modal = ensureSnapshotModal();
+        const titleEl = modal.querySelector('#snapshotTitle');
+        const imgEl = modal.querySelector('#snapshotImage');
+        const prevBtn = modal.querySelector('#snapshotPrev');
+        const nextBtn = modal.querySelector('#snapshotNext');
+        const dotsEl = modal.querySelector('#snapshotDots');
+        const closeBtn = modal.querySelector('#snapshotClose');
+
+        const snapshots = (item.snapshots && item.snapshots.length) ? item.snapshots : [
+            item.thumbnail || placeholderThumb
+        ];
+
+        let index = 0;
+        titleEl.textContent = item.title || item.name || 'Project Snapshots';
+
+        function render() {
+            imgEl.src = snapshots[index];
+            dotsEl.innerHTML = '';
+            snapshots.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'w-2.5 h-2.5 rounded-full ' + (i === index ? 'bg-red-600' : 'bg-gray-300');
+                dot.setAttribute('aria-label', `Go to snapshot ${i + 1}`);
+                dot.onclick = () => { index = i; render(); };
+                dotsEl.appendChild(dot);
+            });
+        }
+
+        prevBtn.onclick = () => { index = (index - 1 + snapshots.length) % snapshots.length; render(); };
+        nextBtn.onclick = () => { index = (index + 1) % snapshots.length; render(); };
+        closeBtn.onclick = () => { modal.classList.add('hidden'); document.body.style.overflow = ''; };
+
+        // Close when clicking overlay outside the panel
+        modal.addEventListener('click', (e) => {
+            const panel = modal.querySelector('div[tabindex="0"]');
+            if (e.target === modal) { closeBtn.click(); }
+        });
+
+        function onKey(e) {
+            if (e.key === 'Escape') { modal.classList.add('hidden'); document.body.style.overflow = ''; }
+            if (e.key === 'ArrowLeft') prevBtn.click();
+            if (e.key === 'ArrowRight') nextBtn.click();
+        }
+        document.addEventListener('keydown', onKey, { once: true });
+
+        render();
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        // Focus the close button for accessibility
+        closeBtn.focus();
     }
 
     function renderProjects(items) {
@@ -298,21 +222,23 @@ if (contactForm) {
             const repoLink = document.createElement('a');
             repoLink.href = item.repoUrl || item.html_url || '#';
             repoLink.target = '_blank';
+            repoLink.rel = 'noopener noreferrer';
             repoLink.className = 'px-3 py-2 rounded-lg bg-gray-100 text-gray-800 hover:bg-gray-200 text-sm';
             repoLink.textContent = 'GitHub';
 
-            const demoLink = document.createElement('a');
-            demoLink.href = item.demoUrl || item.homepage || '#';
-            demoLink.target = '_blank';
-            demoLink.className = 'px-3 py-2 rounded-lg bg-teal-700 text-white hover:bg-teal-800 text-sm';
-            demoLink.textContent = 'Live Demo';
-            if (!demoLink.href || demoLink.href === '#') {
-                demoLink.classList.add('opacity-50', 'cursor-not-allowed');
-                demoLink.onclick = (e) => e.preventDefault();
+            const snapsBtn = document.createElement('button');
+            snapsBtn.type = 'button';
+            snapsBtn.className = 'px-3 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 text-sm';
+            snapsBtn.textContent = 'Snapshots';
+            if (item.snapshots && item.snapshots.length) {
+                snapsBtn.onclick = () => openSnapshots(item);
+            } else {
+                snapsBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                snapsBtn.title = 'No snapshots available';
             }
 
             links.appendChild(repoLink);
-            links.appendChild(demoLink);
+            links.appendChild(snapsBtn);
 
             body.appendChild(title);
             body.appendChild(desc);

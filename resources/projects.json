@@ -2,11 +2,104 @@
   {
     "name": "My_Landing_Page",
     "title": "Personal Landing Page",
-    "description": "Responsive landing page with Tailwind, form validation, and EmailJS.",
+    "description": "Responsive landing page with Tailwind, to showcase my Projects on Github.",
     "technologies": ["HTML", "CSS", "JavaScript", "Tailwind"],
-    "repoUrl": "https://github.com/your-username/My_Landing_Page",
-    "demoUrl": "https://your-username.github.io/",
-    "thumbnail": "resources/profile.png",
-    "slug": "my-landing-page"
+    "repoUrl": "https://github.com/ANShishiveni",
+    "demoUrl": "https://ANShishiveni.github.io/",
+    "thumbnail": "resources/LP.png",
+    "snapshots": [
+      "resources/LP.png",
+      "resources/LP1.png",
+      "resources/LP2.png"
+    ],
+    "slug": "my-landing-page",
+    "featured": true,
+    "order": 1
+  },
+  {
+    "name": "NamPay",
+    "title": "QR-code Mobile Payment Application Prototype",
+    "description": "A QR code mobile money transfer application prototype designed to tackle cash dependency in Namibia, enabling cross-bank transfers using linked mock bank cards and QR codes.",
+    "technologies": ["React Native", "Expo", "Node.js","Express.js", "Firebase", "Stripe API (sandbox)", "Twilio API(Development)"],
+    "repoUrl": "https://github.com/ANShishiveni/NamPay",
+    "demoUrl": "https://ANShishiveni.github.io/",
+    "thumbnail": "resources/QR/QR.png",
+    "snapshots": [
+      "resources/QR/QR1.jpg",
+      "resources/QR/QR2.jpg",
+      "resources/QR/QR3.png"
+    ],
+    "slug": "QR-cod App",
+    "featured": true,
+    "order": 2
+  },
+  {
+    "name": "NLP_Quiz_Generator",
+    "title": "Natural Language Processing Quiz Generator",
+    "description": "An AI-powered quiz generator that creates quizzes from text, topics, or uploaded documents. Supports multiple question types (MCQ, True/False, Fill Blank, Math), difficulty levels, semantic validation, and a monitoring dashboard.",
+    "technologies": ["Flask", "SQLAlchemy", " NLTK (tokenization, POS tagging, WordNet)", "SymPy (symbolic/numeric)", "Bootstrap", "jQuery", "MathJax","pytest"],
+    "repoUrl": "https://github.com/ANShishiveni/NLP_Quiz_Generator",
+    "demoUrl": "https://ANShishiveni.github.io/",
+    "thumbnail": "resources/NLP/NLP.png",
+    "snapshots": [
+      "resources/NLP/NLP1.png",
+      "resources/NLP/NLP2.png",
+      "resources/NLP/NLP3.png"
+    ],
+    "slug": "NLP",
+    "featured": true,
+    "order": 3
+  },
+  {
+    "name": "hospital_app",
+    "title": "Hospital Management System",
+    "description": "A comprehensive hospital management application. This application includes advanced features like user authentication, medical record management, prescription tracking, and doctor availability scheduling.",
+    "technologies": ["Flask", "Bootstrap", "SQLAlchemy 2.0", "Python", "SQLite"],
+    "repoUrl": "https://github.com/ANShishiveni/hospital_app",
+    "demoUrl": "https://ANShishiveni.github.io/",
+    "thumbnail": "resources/HMS/HMS.png",
+    "snapshots": [
+      "resources/HMS/HMS1.png",
+      "resources/HMS/HMS2.png",
+      "resources/HMS/HMS3.png"
+    ],
+    "slug": "Hospital Management System",
+    "featured": true,
+    "order": 4
+  },
+  {
+    "name": "Ace-Tech-Website",
+    "title": "Technology Company Consulting Website",
+    "description": "A small business website for Ace Technologies with a booking flow that saves consultations to a MySQL/MariaDB database",
+    "technologies": ["HTML", "JavaScript", "CSS", "PHP", "MySQL/MariaDB"],
+    "repoUrl": "https://github.com/ANShishiveni/Ace-Tech-Website#",
+    "demoUrl": "https://ANShishiveni.github.io/",
+    "thumbnail": "resources/ACE/ACE.png",
+    "snapshots": [
+      "resources/ACE/ACE1.png",
+      "resources/ACE/ACE2.png",
+      "resources/ACE/ACE3.png"
+    ],
+    "slug": "Ace Technologies",
+    "featured": true,
+    "order": 5
+  },
+  {
+    "name": "Hotel-Booking-System",
+    "title": "Namibia Hotel Booking System",
+    "description": "A comprehensive, production-grade hotel booking system. This system provides a complete solution for hotel reservations with advanced features including concurrency controls, payment processing, review systems, and administrative tools.",
+    "technologies": ["Flask", "Python", "PostgreSQL", "SQLAlchemy ORM", "Bootstrap", "JavaScript", "CSS", "Flask-Mail"],
+    "repoUrl": "https://github.com/ANShishiveni/Hotel-Booking-System",
+    "demoUrl": "https://ANShishiveni.github.io/",
+    "thumbnail": "resources/HBS/HBS.png",
+    "snapshots": [
+      "resources/HBS/HBS1.png",
+      "resources/HBS/HBS2.png",
+      "resources/HBS/HBS3.png"
+    ],
+    "slug": "Hotel Booking System",
+    "featured": true,
+    "order": 6
   }
+  
 ]
