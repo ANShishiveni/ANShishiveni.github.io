@@ -33,6 +33,11 @@
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
+.card-hover {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px 240px;
+}
+
 /* Prevent text overflow on small screens in timeline sections */
 .timeline-text {
     overflow-wrap: break-word;
@@ -53,6 +58,14 @@ body {
 .project-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 18px -6px rgba(0, 0, 0, 0.1);
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.28);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    backdrop-filter: saturate(180%) blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* Tools section scroller styling */

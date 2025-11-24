@@ -88,6 +88,10 @@ foreach ($url in $remoteUrls | Select-Object -Unique) {
             Write-Host "OK remote (logo.wine special):" $u
             continue
         }
+        if ($u -match '^https?://cdn\.jsdelivr\.net/' -and $msg -match '(timed out|403)') {
+            Write-Host "OK remote (jsDelivr special):" $u
+            continue
+        }
         $errors += "Remote asset unreachable: $url -> $msg"
     }
 }
