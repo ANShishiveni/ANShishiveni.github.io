@@ -3,7 +3,8 @@ const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
 menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+    const isOpen = mobileMenu.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
 });
 
 // Smooth scrolling for navigation links
@@ -13,16 +14,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-        
+
         if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-            
-            // Close mobile menu if open
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
             if (!mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
             }
         }
     });
@@ -56,24 +54,40 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     }
 
-    const observer = new IntersectionObserver(entries => {
-        // Choose the most visible section
-        const visible = entries
-            .filter(e => e.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) {
-            setActive(visible.target.id);
-        }
-    }, {
+    function updateActive() {
+        const vh = (window.innerHeight || document.documentElement.clientHeight);
+        const centerY = vh / 2;
+        let bestId = null;
+        let bestDist = Infinity;
+        sections.forEach(sec => {
+            const r = sec.getBoundingClientRect();
+            if (r.top < vh * 0.9 && r.bottom > vh * 0.1) {
+                const d = Math.abs(r.top + r.height / 2 - centerY);
+                if (d < bestDist) { bestDist = d; bestId = sec.id; }
+            }
+        });
+        if (bestId) setActive(bestId);
+    }
+
+    const observer = new IntersectionObserver(() => { updateActive(); }, {
         root: null,
-        threshold: [0.5, 0.6, 0.7, 0.8]
+        rootMargin: '-15% 0px -15% 0px',
+        threshold: [0.1, 0.3, 0.5, 0.7]
     });
 
     sections.forEach(sec => observer.observe(sec));
 
-    // Set initial state based on current hash or topmost section
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(() => { updateActive(); ticking = false; });
+        }
+    }, { passive: true });
+
     const initialId = (location.hash || '').replace('#', '') || (sections[0] && sections[0].id);
     if (initialId) setActive(initialId);
+    updateActive();
 })();
 
 // Form validation and submission
@@ -187,22 +201,105 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         closeBtn.focus();
     }
 
-    function renderProjects(items) {
-        projectsGrid.innerHTML = '';
-        items.forEach(item => {
-            const card = document.createElement('div');
-            card.className = 'bg-white rounded-lg shadow-md card-hover overflow-hidden flex flex-col';
+    function slugify(value) {
+        const s = String(value || '').toLowerCase().trim();
+        return s.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    }
 
+    function mimeFromPath(p) {
+        const l = String(p || '').toLowerCase();
+        if (l.endsWith('.png')) return 'image/png';
+        if (l.endsWith('.jpg') || l.endsWith('.jpeg')) return 'image/jpeg';
+        if (l.endsWith('.webp')) return 'image/webp';
+        return 'image/png';
+    }
+
+    function getThumbPaths(item) {
+        const base = item.thumbnail || `resources/projects/${slugify(item.slug || item.name)}.png`;
+        let webp = base.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+        if (webp === base && !base.endsWith('.webp')) webp = `${base}.webp`;
+        return { orig: base, webp };
+    }
+
+    async function imageExists(url) {
+        try {
+            const res = await fetch(url, { method: 'HEAD' });
+            return !!res && res.ok;
+        } catch {
+            return false;
+        }
+    }
+
+    function addPreloadLink(href) {
+        const head = document.head;
+        if (!head || !href) return;
+        const exists = Array.from(head.querySelectorAll('link[rel="preload"][as="image"]')).some(l => l.getAttribute('href') === href);
+        if (exists) return;
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = href;
+        head.appendChild(link);
+    }
+
+    async function renderProjects(items) {
+        projectsGrid.innerHTML = '';
+        for (let idx = 0; idx < items.length; idx++) {
+            const item = items[idx];
+            const card = document.createElement('div');
+            card.className = 'glass rounded-lg shadow-md card-hover overflow-hidden flex flex-col relative';
+
+            const imgWrap = document.createElement('div');
+            imgWrap.className = 'relative group';
+            const paths = getThumbPaths(item);
+            const picture = document.createElement('picture');
+            const hasWebp = await imageExists(paths.webp);
+            if (hasWebp) {
+                const srcWebp = document.createElement('source');
+                srcWebp.type = 'image/webp';
+                srcWebp.srcset = paths.webp;
+                picture.appendChild(srcWebp);
+            }
+            const srcOrig = document.createElement('source');
+            srcOrig.type = mimeFromPath(paths.orig);
+            srcOrig.srcset = paths.orig;
+            picture.appendChild(srcOrig);
             const img = document.createElement('img');
-            img.src = item.thumbnail || `resources/projects/${item.slug || item.name}.png`;
+            img.src = paths.orig;
             img.alt = `${item.name} thumbnail`;
             img.className = 'w-full h-40 object-cover project-thumb';
-            img.loading = 'lazy';
-            img.onerror = () => { img.src = placeholderThumb; };
+            img.loading = idx < 3 ? 'eager' : 'lazy';
+            img.decoding = 'async';
+            if (idx < 3) { try { img.fetchPriority = 'high'; } catch {} }
+            img.onerror = () => {
+                const orig = paths.orig;
+                const cur = img.currentSrc || img.src;
+                if (cur !== orig) {
+                    img.src = orig;
+                } else {
+                    img.src = placeholderThumb;
+                }
+            };
+            img.setAttribute('width', '640');
+            img.setAttribute('height', '360');
+            img.sizes = '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw';
+
             if (item.snapshots && item.snapshots.length) {
                 img.classList.add('cursor-pointer');
                 img.onclick = () => openSnapshots(item);
+                const overlay = document.createElement('button');
+                overlay.type = 'button';
+                overlay.setAttribute('aria-label', 'View snapshots');
+                overlay.setAttribute('aria-controls', 'snapshotModal');
+                overlay.setAttribute('aria-expanded', 'false');
+                overlay.className = 'absolute top-2 right-2 bg-black/60 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 focus:opacity-100 transition';
+                overlay.innerHTML = '<i class="fas fa-eye"></i>';
+                overlay.onclick = (e) => { e.stopPropagation(); openSnapshots(item); };
+                imgWrap.appendChild(overlay);
             }
+
+            picture.appendChild(img);
+            imgWrap.appendChild(picture);
 
             const body = document.createElement('div');
             body.className = 'p-6 flex-1 flex flex-col';
@@ -230,29 +327,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             repoLink.className = 'px-3 py-2 rounded-lg bg-gray-100 text-gray-800 hover:bg-gray-200 text-sm';
             repoLink.textContent = 'GitHub';
 
-            const snapsBtn = document.createElement('button');
-            snapsBtn.type = 'button';
-            snapsBtn.className = 'px-3 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 text-sm';
-            snapsBtn.textContent = 'Snapshots';
-            if (item.snapshots && item.snapshots.length) {
-                snapsBtn.onclick = () => openSnapshots(item);
-            } else {
-                snapsBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                snapsBtn.title = 'No snapshots available';
-            }
-
             links.appendChild(repoLink);
-            links.appendChild(snapsBtn);
 
             body.appendChild(title);
             body.appendChild(desc);
             body.appendChild(tags);
             body.appendChild(links);
 
-            card.appendChild(img);
+            card.appendChild(imgWrap);
             card.appendChild(body);
             projectsGrid.appendChild(card);
-        });
+
+            if (idx < 3) { addPreloadLink(paths.orig); }
+        }
     }
 
     async function fetchLanguages(languagesUrl) {
@@ -291,7 +378,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             );
 
             if (!items.length) throw new Error('No repositories found.');
-            renderProjects(items);
+            await renderProjects(items);
         } catch (err) {
             throw err;
         }
@@ -302,7 +389,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             const res = await fetch('resources/projects.json');
             if (!res.ok) throw new Error('manual projects not found');
             const items = await res.json();
-            renderProjects(items);
+            await renderProjects(items);
         } catch {
             projectsError.textContent = 'Set your GitHub username in script.js or add resources/projects.json.';
             projectsError.classList.remove('hidden');

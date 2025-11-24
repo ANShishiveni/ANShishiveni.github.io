@@ -6,11 +6,11 @@
     "technologies": ["HTML", "CSS", "JavaScript", "Tailwind"],
     "repoUrl": "https://github.com/ANShishiveni/ANShishiveni.github.io",
     "demoUrl": "https://ANShishiveni.github.io/",
-    "thumbnail": "resources/LP.png",
+    "thumbnail": "resources/LP/LP.png",
     "snapshots": [
-      "resources/LP.png",
-      "resources/LP1.png",
-      "resources/LP2.png"
+      "resources/LP/LP.png",
+      "resources/LP/LP1.png",
+      "resources/LP/LP2.png"
     ],
     "slug": "my-landing-page",
     "featured": true,
