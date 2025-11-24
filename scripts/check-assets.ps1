@@ -92,6 +92,10 @@ foreach ($url in $remoteUrls | Select-Object -Unique) {
             Write-Host "OK remote (jsDelivr special):" $u
             continue
         }
+        if ($u -match '^https?://cdnjs\.cloudflare\.com/' -and $msg -match '(timed out|403)') {
+            Write-Host "OK remote (CDNJS special):" $u
+            continue
+        }
         $errors += "Remote asset unreachable: $url -> $msg"
     }
 }

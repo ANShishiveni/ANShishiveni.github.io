@@ -51,6 +51,18 @@ body {
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+section[id] {
+    scroll-margin-top: 88px;
+}
+
+@media (max-width: 768px) {
+    section[id] { scroll-margin-top: 72px; }
+}
+
 /* Project card tweaks */
 .project-thumb {
     background-color: #f3f4f6;

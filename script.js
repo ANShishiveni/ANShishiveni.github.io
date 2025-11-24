@@ -3,7 +3,8 @@ const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
 menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
+    const isOpen = mobileMenu.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
 });
 
 // Smooth scrolling for navigation links
@@ -13,16 +14,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-        
+
         if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-            
-            // Close mobile menu if open
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
             if (!mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
             }
         }
     });
@@ -291,6 +289,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 img.onclick = () => openSnapshots(item);
                 const overlay = document.createElement('button');
                 overlay.type = 'button';
+                overlay.setAttribute('aria-label', 'View snapshots');
+                overlay.setAttribute('aria-controls', 'snapshotModal');
+                overlay.setAttribute('aria-expanded', 'false');
                 overlay.className = 'absolute top-2 right-2 bg-black/60 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 focus:opacity-100 transition';
                 overlay.innerHTML = '<i class="fas fa-eye"></i>';
                 overlay.onclick = (e) => { e.stopPropagation(); openSnapshots(item); };
