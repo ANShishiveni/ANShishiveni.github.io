@@ -69,12 +69,6 @@ This project is a static landing page built with plain HTML, CSS, and JavaScript
    - Open `http://localhost:5500/`
 2. Verify images, favicon, and CV download work.
 
-## EmailJS Setup
-
-Update `script.js` with your EmailJS credentials:
-- `emailjs.init("YOUR_PUBLIC_KEY")`
-- `emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)`
-
 ## Automated Asset Checks
 
 - A PowerShell script `scripts/check-assets.ps1` validates:
