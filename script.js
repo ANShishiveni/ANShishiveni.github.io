@@ -55,7 +55,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
 
     function updateActive() {
-        const vh = window.innerHeight;
+        const vh = (window.innerHeight || document.documentElement.clientHeight);
         const centerY = vh / 2;
         let bestId = null;
         let bestDist = Infinity;
@@ -107,13 +107,120 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         <svg xmlns="http://www.w3.org/2000/svg" width="640" height="360">
           <rect width="100%" height="100%" fill="#e5e7eb"/>
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-                font-family="ui-sans-serif, system-ui, sans-serif" font-size="24" fill="#9ca3af">
-            No Preview
+                font-family="Inter, Arial, sans-serif" font-size="20" fill="#6b7280">
+            Project Thumbnail
           </text>
-        </svg>
-        `);
+        </svg>`);
 
-    // Helper: Check if WebP image exists (HEAD request)
+    function createTagChip(text) {
+        const span = document.createElement('span');
+        span.className = 'inline-block bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded';
+        span.textContent = text;
+        return span;
+    }
+
+    // Snapshots modal utilities
+    function ensureSnapshotModal() {
+        let modal = document.getElementById('snapshotModal');
+        if (modal) return modal;
+
+        modal = document.createElement('div');
+        modal.id = 'snapshotModal';
+        modal.className = 'fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 hidden';
+        modal.setAttribute('role', 'dialog');
+        modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('aria-label', 'Project snapshots');
+        modal.innerHTML = `
+          <div class="bg-white rounded-xl shadow-2xl w-11/12 max-w-3xl relative" tabindex="0">
+            <button id="snapshotClose" class="absolute top-3 right-3 p-2 rounded-full bg-red-600 hover:bg-red-700 text-white shadow" aria-label="Close snapshots">
+              ×
+            </button>
+            <div class="p-4">
+              <h3 id="snapshotTitle" class="text-xl font-semibold mb-2 text-teal-700"></h3>
+              <div class="relative">
+                <img id="snapshotImage" src="" alt="Project snapshot" class="w-full max-h-[60vh] object-contain rounded-lg bg-gray-50 border" />
+                <button id="snapshotPrev" class="absolute left-3 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white rounded-full p-2 shadow" aria-label="Previous snapshot">‹</button>
+                <button id="snapshotNext" class="absolute right-3 top-1/2 -translate-y-1/2 bg-red-600 hover:bg-red-700 text-white rounded-full p-2 shadow" aria-label="Next snapshot">›</button>
+              </div>
+              <div id="snapshotDots" class="flex justify-center gap-2 mt-3"></div>
+            </div>
+          </div>`;
+        document.body.appendChild(modal);
+        return modal;
+    }
+
+    function openSnapshots(item) {
+        const modal = ensureSnapshotModal();
+        const titleEl = modal.querySelector('#snapshotTitle');
+        const imgEl = modal.querySelector('#snapshotImage');
+        const prevBtn = modal.querySelector('#snapshotPrev');
+        const nextBtn = modal.querySelector('#snapshotNext');
+        const dotsEl = modal.querySelector('#snapshotDots');
+        const closeBtn = modal.querySelector('#snapshotClose');
+
+        const snapshots = (item.snapshots && item.snapshots.length) ? item.snapshots : [
+            item.thumbnail || placeholderThumb
+        ];
+
+        let index = 0;
+        titleEl.textContent = item.title || item.name || 'Project Snapshots';
+
+        function render() {
+            imgEl.src = snapshots[index];
+            dotsEl.innerHTML = '';
+            snapshots.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'w-2.5 h-2.5 rounded-full ' + (i === index ? 'bg-red-600' : 'bg-gray-300');
+                dot.setAttribute('aria-label', `Go to snapshot ${i + 1}`);
+                dot.onclick = () => { index = i; render(); };
+                dotsEl.appendChild(dot);
+            });
+        }
+
+        prevBtn.onclick = () => { index = (index - 1 + snapshots.length) % snapshots.length; render(); };
+        nextBtn.onclick = () => { index = (index + 1) % snapshots.length; render(); };
+        closeBtn.onclick = () => { modal.classList.add('hidden'); document.body.style.overflow = ''; };
+
+        // Close when clicking overlay outside the panel
+        modal.addEventListener('click', (e) => {
+            const panel = modal.querySelector('div[tabindex="0"]');
+            if (e.target === modal) { closeBtn.click(); }
+        });
+
+        function onKey(e) {
+            if (e.key === 'Escape') { modal.classList.add('hidden'); document.body.style.overflow = ''; }
+            if (e.key === 'ArrowLeft') prevBtn.click();
+            if (e.key === 'ArrowRight') nextBtn.click();
+        }
+        document.addEventListener('keydown', onKey, { once: true });
+
+        render();
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        // Focus the close button for accessibility
+        closeBtn.focus();
+    }
+
+    function slugify(value) {
+        const s = String(value || '').toLowerCase().trim();
+        return s.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    }
+
+    function mimeFromPath(p) {
+        const l = String(p || '').toLowerCase();
+        if (l.endsWith('.png')) return 'image/png';
+        if (l.endsWith('.jpg') || l.endsWith('.jpeg')) return 'image/jpeg';
+        if (l.endsWith('.webp')) return 'image/webp';
+        return 'image/png';
+    }
+
+    function getThumbPaths(item) {
+        const base = item.thumbnail || `resources/projects/${slugify(item.slug || item.name)}.png`;
+        let webp = base.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+        if (webp === base && !base.endsWith('.webp')) webp = `${base}.webp`;
+        return { orig: base, webp };
+    }
+
     async function imageExists(url) {
         try {
             const res = await fetch(url, { method: 'HEAD' });
@@ -123,54 +230,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     }
 
-    // Helper: Determine paths for local thumbnails (manual or GitHub-based naming)
-    function getThumbPaths(item) {
-        // If 'thumbnail' is explicitly set in JSON (manual projects), use it.
-        // Assuming manual JSON might have "images/project.jpg"
-        // We'll try to find a .webp version if the manual one is not explicit about extension or if we want to enforce structure.
-        // BUT for simplicity, if item.thumbnail is provided, we respect it.
-        // If not, we derive from item.name for GitHub repos.
-
-        let base = '';
-        if (item.thumbnail) {
-            // e.g. "images/screenshot1.png"
-            // We strip extension to find potential webp
-            const lastDot = item.thumbnail.lastIndexOf('.');
-            if (lastDot !== -1) {
-                base = item.thumbnail.substring(0, lastDot);
-            } else {
-                base = item.thumbnail;
-            }
-            // If the manual path is just a file name, assume images/ folder? 
-            // The existing projects.json seems to use relative paths like "images/..." or just names?
-            // Let's assume projects.json provides full relative path.
-            return {
-                orig: item.thumbnail,
-                webp: base + '.webp'
-            };
-        } else {
-            // Default for GitHub repos: images/{name}.jpg + .webp
-            return {
-                orig: `images/${item.name}.jpg`,
-                webp: `images/${item.name}.webp`
-            };
-        }
-    }
-
-    function mimeFromPath(path) {
-        if (path.endsWith('.png')) return 'image/png';
-        if (path.endsWith('.gif')) return 'image/gif';
-        return 'image/jpeg';
+    function addPreloadLink(href) {
+        const head = document.head;
+        if (!head || !href) return;
+        const exists = Array.from(head.querySelectorAll('link[rel="preload"][as="image"]')).some(l => l.getAttribute('href') === href);
+        if (exists) return;
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = href;
+        head.appendChild(link);
     }
 
     async function renderProjects(items) {
         projectsGrid.innerHTML = '';
-        
-        // Prioritize first 3 items for LCP
-        const priorityItems = items.slice(0, 3);
-        const otherItems = items.slice(3);
-
-        const createCard = async (item, index) => {
+        for (let idx = 0; idx < items.length; idx++) {
+            const item = items[idx];
             const card = document.createElement('div');
             card.className = 'glass rounded-lg shadow-md card-hover overflow-hidden flex flex-col relative';
 
@@ -192,142 +267,84 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             const img = document.createElement('img');
             img.src = paths.orig;
             img.alt = `${item.name} thumbnail`;
-            img.className = 'w-full h-48 object-cover transform group-hover:scale-105 transition duration-500';
-            img.loading = index < 3 ? 'eager' : 'lazy';
-            if (index < 3) img.fetchPriority = 'high';
-            
-            // Add error handler to fall back to placeholder
+            img.className = 'w-full h-40 object-cover project-thumb';
+            img.loading = idx < 3 ? 'eager' : 'lazy';
+            img.decoding = 'async';
+            if (idx < 3) { try { img.fetchPriority = 'high'; } catch {} }
             img.onerror = () => {
-                // If original image fails, replace the whole picture content with placeholder
-                img.src = placeholderThumb;
-                img.srcset = ''; // clear any srcset
-                // remove sources to ensure fallback displays
-                while (picture.firstChild !== img) {
-                    picture.removeChild(picture.firstChild);
+                const orig = paths.orig;
+                const cur = img.currentSrc || img.src;
+                if (cur !== orig) {
+                    img.src = orig;
+                } else {
+                    img.src = placeholderThumb;
                 }
             };
+            img.setAttribute('width', '640');
+            img.setAttribute('height', '360');
+            img.sizes = '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw';
+
+            if (item.snapshots && item.snapshots.length) {
+                img.classList.add('cursor-pointer');
+                img.onclick = () => openSnapshots(item);
+                const overlay = document.createElement('button');
+                overlay.type = 'button';
+                overlay.setAttribute('aria-label', 'View snapshots');
+                overlay.setAttribute('aria-controls', 'snapshotModal');
+                overlay.setAttribute('aria-expanded', 'false');
+                overlay.className = 'absolute top-2 right-2 bg-black/60 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 focus:opacity-100 transition';
+                overlay.innerHTML = '<i class="fas fa-eye"></i>';
+                overlay.onclick = (e) => { e.stopPropagation(); openSnapshots(item); };
+                imgWrap.appendChild(overlay);
+            }
 
             picture.appendChild(img);
             imgWrap.appendChild(picture);
 
-            // Overlay with "View Snapshot"
-            const overlay = document.createElement('div');
-            overlay.className = 'absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center';
-            // Make entire overlay clickable for modal, or just a button?
-            // Let's use a button for accessibility
-            const viewBtn = document.createElement('button');
-            viewBtn.className = 'text-white font-semibold py-2 px-4 border border-white rounded hover:bg-white hover:text-black transition-colors';
-            viewBtn.textContent = 'View Snapshot';
-            viewBtn.setAttribute('aria-label', `View snapshot of ${item.title}`);
-            viewBtn.onclick = (e) => {
-                e.stopPropagation(); // prevent card click if we add one later
-                openModal(img.src, item.title);
-            };
-            overlay.appendChild(viewBtn);
-            imgWrap.appendChild(overlay);
-
-            card.appendChild(imgWrap);
-
-            const content = document.createElement('div');
-            content.className = 'p-6 flex flex-col flex-grow';
+            const body = document.createElement('div');
+            body.className = 'p-6 flex-1 flex flex-col';
 
             const title = document.createElement('h3');
-            title.className = 'text-xl font-bold mb-2 text-white';
-            title.textContent = item.title;
-            content.appendChild(title);
+            title.className = 'text-xl font-semibold mb-2 text-blue-800';
+            title.textContent = item.title || item.name;
 
             const desc = document.createElement('p');
-            desc.className = 'text-gray-300 mb-4 flex-grow';
+            desc.className = 'text-gray-600 mb-4';
             desc.textContent = item.description || 'No description available.';
-            content.appendChild(desc);
 
             const tags = document.createElement('div');
-            tags.className = 'flex flex-wrap gap-2 mb-4';
-            (item.technologies || []).forEach(tech => {
-                const span = document.createElement('span');
-                span.className = 'px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm';
-                span.textContent = tech;
-                tags.appendChild(span);
+            tags.className = 'mb-4';
+            (item.technologies || item.topics || item.languages || []).slice(0, 6).forEach(t => {
+                tags.appendChild(createTagChip(t));
             });
-            content.appendChild(tags);
 
             const links = document.createElement('div');
-            links.className = 'flex justify-between mt-auto pt-4 border-t border-gray-700';
+            links.className = 'mt-auto flex space-x-3';
+            const repoLink = document.createElement('a');
+            repoLink.href = item.repoUrl || item.html_url || '#';
+            repoLink.target = '_blank';
+            repoLink.rel = 'noopener noreferrer';
+            repoLink.className = 'px-3 py-2 rounded-lg bg-gray-100 text-gray-800 hover:bg-gray-200 text-sm';
+            repoLink.textContent = 'GitHub';
 
-            if (item.repoUrl) {
-                const repoLink = document.createElement('a');
-                repoLink.href = item.repoUrl;
-                repoLink.target = '_blank';
-                repoLink.rel = 'noopener noreferrer';
-                repoLink.className = 'text-gray-300 hover:text-white flex items-center transition-colors';
-                repoLink.innerHTML = '<i class="fab fa-github mr-2"></i> Code';
-                links.appendChild(repoLink);
-            }
+            links.appendChild(repoLink);
 
-            if (item.demoUrl) {
-                const demoLink = document.createElement('a');
-                demoLink.href = item.demoUrl;
-                demoLink.target = '_blank';
-                demoLink.rel = 'noopener noreferrer';
-                demoLink.className = 'text-blue-400 hover:text-blue-300 flex items-center transition-colors';
-                demoLink.innerHTML = '<i class="fas fa-external-link-alt mr-2"></i> Live Demo';
-                links.appendChild(demoLink);
-            }
+            body.appendChild(title);
+            body.appendChild(desc);
+            body.appendChild(tags);
+            body.appendChild(links);
 
-            content.appendChild(links);
-            card.appendChild(content);
+            card.appendChild(imgWrap);
+            card.appendChild(body);
             projectsGrid.appendChild(card);
-        };
 
-        // Render items sequentially to maintain order but fetch images in parallel
-        for (let i = 0; i < items.length; i++) {
-            await createCard(items[i], i);
+            if (idx < 3) { addPreloadLink(paths.orig); }
         }
     }
 
-    // Modal logic
-    const modal = document.createElement('div');
-    modal.id = 'imageModal';
-    modal.className = 'fixed inset-0 z-50 hidden flex items-center justify-center bg-black bg-opacity-90 p-4';
-    modal.innerHTML = `
-        <div class="relative max-w-4xl w-full max-h-screen">
-            <button id="modalClose" class="absolute -top-10 right-0 text-white text-3xl hover:text-gray-300 focus:outline-none" aria-label="Close modal">&times;</button>
-            <img id="modalImg" src="" alt="Project Snapshot" class="w-full h-auto max-h-[85vh] object-contain rounded shadow-lg">
-            <p id="modalCaption" class="text-center text-white mt-2 text-lg font-semibold"></p>
-        </div>
-    `;
-    document.body.appendChild(modal);
-
-    const modalImg = modal.querySelector('#modalImg');
-    const modalCaption = modal.querySelector('#modalCaption');
-    const modalClose = modal.querySelector('#modalClose');
-
-    function openModal(src, caption) {
-        modalImg.src = src;
-        modalCaption.textContent = caption;
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // prevent background scrolling
-        modalClose.focus();
-    }
-
-    function closeModal() {
-        modal.classList.add('hidden');
-        modalImg.src = '';
-        document.body.style.overflow = '';
-    }
-
-    modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
-    });
-
-    async function fetchLanguages(url) {
-        if (!url) return [];
+    async function fetchLanguages(languagesUrl) {
         try {
-            const res = await fetch(url);
+            const res = await fetch(languagesUrl, { headers: { 'Accept': 'application/vnd.github+json' } });
             if (!res.ok) return [];
             const data = await res.json();
             return Object.keys(data);
@@ -392,12 +409,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             await fetchManualProjects();
         }
     })();
-})();
-
-// Automatically update copyright year
-(function() {
-    const yearSpan = document.getElementById('current-year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
 })();
