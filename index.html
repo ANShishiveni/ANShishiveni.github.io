@@ -11,7 +11,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20260312">
     <link rel="preload" as="image" href="resources/profile.png" fetchpriority="high">
 </head>
 <body class="font-sans antialiased text-gray-800">
@@ -25,6 +25,7 @@
                     <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-3">About</a>
                     <a href="#education" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-3">Education</a>
                     <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-3">Skills</a>
+                    <a href="#certifications" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-3">Certifications</a>
                     <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-3">Projects</a>
                     <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-3">Contact</a>
                 </div>
@@ -40,6 +41,7 @@
                 <a href="#about" class="block py-3 min-h-12 text-lg text-gray-700 hover:text-blue-600">About</a>
                 <a href="#education" class="block py-3 min-h-12 text-lg text-gray-700 hover:text-blue-600">Education</a>
                 <a href="#skills" class="block py-3 min-h-12 text-lg text-gray-700 hover:text-blue-600">Skills</a>
+                <a href="#certifications" class="block py-3 min-h-12 text-lg text-gray-700 hover:text-blue-600">Certifications</a>
                 <a href="#projects" class="block py-3 min-h-12 text-lg text-gray-700 hover:text-blue-600">Projects</a>
                 <a href="#contact" class="block py-3 min-h-12 text-lg text-gray-700 hover:text-blue-600">Contact</a>
             </div>
@@ -261,56 +263,102 @@
     <section id="about" class="py-20 bg-gradient-to-br from-white via-blue-50 to-teal-100">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-teal-700">About Me</h2>
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <h3 class="text-2xl font-semibold mb-4 text-blue-800">Who I Am</h3>
-                    <p class="text-lg mb-6">I'm a recent Computer Science graduate from the University of Namibia, seeking an opportunity to apply my academic knowledge in a real-world setting.</p>
-                    <p class="text-lg mb-6">I'm passionate about problem-solving, learning emerging technologies, and contributing to innovative tech solutions. Eager to gain hands-on experience, expand technical skills, and collaborate in a dynamic, growth-oriented environment.</p>
-                    
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2 flex flex-col h-full">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900 tracking-tight border-l-4 border-teal-500 pl-3">Who I Am</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex-grow">
+                        <p class="text-lg mb-6 text-gray-700">I'm a recent Computer Science graduate from the University of Namibia, seeking an opportunity to apply my academic knowledge in a real-world setting.</p>
+                        <p class="text-lg text-gray-700">I'm passionate about problem-solving, learning emerging technologies, and contributing to innovative tech solutions. Eager to gain hands-on experience, expand technical skills, and collaborate in a dynamic, growth-oriented environment.</p>
+                    </div>
                 </div>
-                <div class="md:w-1/2">
-                    <h3 class="text-2xl font-semibold mb-4 text-blue-800">Certifications</h3>
-                    <div class="space-y-6">
-                        <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300 flex items-center">
-                            <img src="resources/it-essentials.png" alt="IT Essentials Badge" class="w-20 h-20 mr-6 rounded-lg border-2 border-blue-200 shadow" loading="lazy" />
-                            <div>
-                                <h4 class="text-xl font-semibold mb-2">IT Essentials | CISCO Networking Academy | 2023</h4>
-                                <ul class="list-disc pl-5 space-y-1">
-                                    <li>Selected, installed, and configured computer components</li>
-                                    <li>Installed and maintained Windows and Linux operating systems</li>
-                                    <li>Implemented basic host, data, and network security</li>
-                                    <li>Gained knowledge in virtualization and cloud computing</li>
-                                </ul>
-                                <a href="https://www.credly.com/users/absalom-shishiveni" target="_blank" class="text-teal-700 underline text-sm mt-2 inline-block">View Badge</a>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300 flex items-center">
-                            <img src="resources/NetworkingEssentials.png" alt="Networking Essentials Badge" class="w-20 h-20 mr-6 rounded-lg border-2 border-blue-200 shadow" loading="lazy" />
-                            <div>
-                                <h4 class="text-xl font-semibold mb-2">Networking Essentials | CISCO Networking Academy | 2022</h4>
-                                <ul class="list-disc pl-5 space-y-1">
-                                    <li>Built and configured small networks using Cisco devices</li>
-                                    <li>Explained IP addressing and TCP/IP protocols</li>
-                                    <li>Configured wireless routers and secured wireless clients</li>
-                                    <li>Troubleshoot common network issues</li>
-                                </ul>
-                                <a href="https://www.credly.com/users/absalom-shishiveni" target="_blank" class="text-teal-700 underline text-sm mt-2 inline-block">View Badge</a>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md card-hover transition duration-300 flex items-center">
-                            <img src="resources/introduction-to-cybersecurity.png" alt="Introduction to Cybersecurity Badge" class="w-20 h-20 mr-6 rounded-lg border-2 border-blue-200 shadow" loading="lazy" />
-                            <div>
-                                <h4 class="text-xl font-semibold mb-2">Introduction to Cybersecurity | CISCO Networking Academy | 2026</h4>
-                                <ul class="list-disc pl-5 space-y-1">
-                                    <li>Explain the basics of being safe online, what cybersecurity is, and its impact</li>
-                                    <li>Explain common cyber threats, attacks, and vulnerabilities</li>
-                                    <li>Explain how to protect oneself while online</li>
-                                    <li>Explain how organizations protect operations against attacks</li>
-                                    <li>Access resources to explore cybersecurity career options</li>
-                                </ul>
-                                <a href="https://www.credly.com/badges/255aade4-0974-4998-bcfa-7c6411fbc67b/public_url" target="_blank" class="text-teal-700 underline text-sm mt-2 inline-block">View Badge</a>
-                            </div>
-                        </div>
+                <div class="md:w-1/2 flex flex-col h-full">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900 tracking-tight border-l-4 border-teal-500 pl-3">Professional Statement</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex-grow">
+                        <p class="text-lg text-gray-700 leading-relaxed">I am developing strong skills in cybersecurity analysis, threat detection, and problem‑solving. I value protecting people and organizations by ensuring systems remain secure, reliable, and compliant. I am passionate about applying my technical background, analytical mindset, and commitment to continuous learning to help organizations strengthen their security posture and respond effectively to emerging threats.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-teal-700">Certifications</h2>
+            <div class="flex flex-wrap justify-center gap-8">
+                <!-- IT Essentials -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover border border-gray-100 transition duration-300 flex flex-col w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)]">
+                    <div class="flex items-center mb-4">
+                        <img src="resources/it-essentials.png" alt="IT Essentials Badge" class="w-16 h-16 mr-4 rounded-lg border border-blue-100 shadow-sm" loading="lazy" />
+                        <h4 class="text-lg font-bold text-gray-800 leading-tight">IT Essentials</h4>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-sm text-teal-600 font-semibold mb-2">CISCO Networking Academy | 2023</p>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm">
+                            <li>Selected, installed, and configured computer components</li>
+                            <li>Installed and maintained Windows and Linux operating systems</li>
+                            <li>Implemented basic host, data, and network security</li>
+                            <li>Gained knowledge in virtualization and cloud computing</li>
+                        </ul>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="https://www.credly.com/users/absalom-shishiveni" target="_blank" class="inline-block bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold hover:bg-teal-100 transition duration-300">View Badge</a>
+                    </div>
+                </div>
+
+                <!-- Networking Essentials -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover border border-gray-100 transition duration-300 flex flex-col w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)]">
+                    <div class="flex items-center mb-4">
+                        <img src="resources/NetworkingEssentials.png" alt="Networking Essentials Badge" class="w-16 h-16 mr-4 rounded-lg border border-blue-100 shadow-sm" loading="lazy" />
+                        <h4 class="text-lg font-bold text-gray-800 leading-tight">Networking Essentials</h4>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-sm text-teal-600 font-semibold mb-2">CISCO Networking Academy | 2022</p>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm">
+                            <li>Built and configured small networks using Cisco devices</li>
+                            <li>Explained IP addressing and TCP/IP protocols</li>
+                            <li>Configured wireless routers and secured wireless clients</li>
+                            <li>Troubleshoot common network issues</li>
+                        </ul>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="https://www.credly.com/users/absalom-shishiveni" target="_blank" class="inline-block bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold hover:bg-teal-100 transition duration-300">View Badge</a>
+                    </div>
+                </div>
+
+                <!-- Introduction to Cybersecurity -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover border border-gray-100 transition duration-300 flex flex-col w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)]">
+                    <div class="flex items-center mb-4">
+                        <img src="resources/introduction-to-cybersecurity.png" alt="Introduction to Cybersecurity Badge" class="w-16 h-16 mr-4 rounded-lg border border-blue-100 shadow-sm" loading="lazy" />
+                        <h4 class="text-lg font-bold text-gray-800 leading-tight">Introduction to Cybersecurity</h4>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-sm text-teal-600 font-semibold mb-2">CISCO Networking Academy | 2026</p>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-600 text-sm">
+                            <li>Explain the basics of being safe online, what cybersecurity is, and its impact</li>
+                            <li>Explain common cyber threats, attacks, and vulnerabilities</li>
+                            <li>Explain how to protect oneself while online</li>
+                            <li>Explain how organizations protect operations against attacks</li>
+                            <li>Access resources to explore cybersecurity career options</li>
+                        </ul>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="https://www.credly.com/badges/255aade4-0974-4998-bcfa-7c6411fbc67b/public_url" target="_blank" class="inline-block bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold hover:bg-teal-100 transition duration-300">View Badge</a>
+                    </div>
+                </div>
+
+                <!-- ISC2 Candidate -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover border border-gray-100 transition duration-300 flex flex-col w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)]">
+                    <div class="flex items-center mb-4">
+                        <img src="resources/isc2-candidate.png" alt="ISC2 Candidate Badge" class="w-16 h-16 mr-4 rounded-lg border border-blue-100 shadow-sm" loading="lazy" />
+                        <h4 class="text-lg font-bold text-gray-800 leading-tight">ISC2 Candidate</h4>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-sm text-teal-600 font-semibold mb-2">ISC2 | 2026–2027</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">ISC2 Candidates are individuals pursuing or considering a cybersecurity certification. To become a Candidate, the individual must apply online and provide minimum identifying information, as well as affirm that they will abide by the ISC2 Code of Ethics and Privacy Policy.</p>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="https://www.credly.com/badges/e43d995d-3575-4ee8-8a7a-3158b26ff4d5/public_url" target="_blank" class="inline-block bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold hover:bg-teal-100 transition duration-300">View Badge</a>
                     </div>
                 </div>
             </div>
@@ -396,80 +444,130 @@
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Skills & Expertise</h2>
+            <h2 class="text-3xl font-bold text-center mb-4">Skills & Expertise</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">A focused overview of the technical and professional skills I use to build reliable software and support secure systems.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-800">Core Knowledge</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Software Engineering</span>
-                        <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Web Design & Programming</span>
-                        <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Database Programming</span>
-                        <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Human Computer Interaction</span>
-                        <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Networking</span>
-                        <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Network System Security</span>
-                        <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Artificial Intelligence</span>
-                        <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Data Warehousing & Mining</span>
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm card-hover">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center border border-teal-100">
+                            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-gray-900 tracking-tight mb-3">Core Competencies</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Software Engineering</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Web Design & Programming</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Database Programming</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Human Computer Interaction</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Problem Solving</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-800">Frontend & Mobile</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="inline-block bg-teal-100 text-teal-800 text-sm px-3 py-1 rounded-full">HTML</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 text-sm px-3 py-1 rounded-full">CSS</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 text-sm px-3 py-1 rounded-full">JavaScript</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 text-sm px-3 py-1 rounded-full">C#</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 text-sm px-3 py-1 rounded-full">Flutter</span>
-                        <span class="inline-block bg-teal-100 text-teal-800 text-sm px-3 py-1 rounded-full">React Native</span>
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm card-hover">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center border border-teal-100">
+                            <i class="fa-solid fa-code" aria-hidden="true"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-gray-900 tracking-tight mb-3">Programming</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">C#</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Python</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Java</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">JavaScript</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-800">Programming Languages</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">C#</span>
-                        <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">Python</span>
-                        <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">Java</span>
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm card-hover">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center border border-teal-100">
+                            <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-gray-900 tracking-tight mb-3">Web & Mobile</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">HTML</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">CSS</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Tailwind</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Flutter</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">React Native</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-800">Networking & Systems</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="inline-block bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full">Computer Networks</span>
-                        <span class="inline-block bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full">Windows OS</span>
-                        <span class="inline-block bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full">Ubuntu OS</span>
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm card-hover">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center border border-teal-100">
+                            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-gray-900 tracking-tight mb-3">Security & Networking</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Computer Networks</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Network System Security</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Windows</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Ubuntu</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Cisco Packet Tracer</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-800">Hardware & Software</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="inline-block bg-orange-100 text-orange-800 text-sm px-3 py-1 rounded-full">Installation & Troubleshooting</span>
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm card-hover">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center border border-teal-100">
+                            <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-gray-900 tracking-tight mb-3">Data & AI</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Artificial Intelligence</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Data Warehousing & Mining</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">WEKA</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Google Colab</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-800">Tools</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="inline-block bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Microsoft Office</span>
-                        <span class="inline-block bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Cisco Packet Tracer</span>
-                        <span class="inline-block bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">WEKA</span>
-                        <span class="inline-block bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Google Colab</span>
-                        <span class="inline-block bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Visual Studio Code</span>
-                        <span class="inline-block bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">GitHub</span>
-                        <span class="inline-block bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full">Visio</span>
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm card-hover">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center border border-teal-100">
+                            <i class="fa-solid fa-toolbox" aria-hidden="true"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-gray-900 tracking-tight mb-3">Tools</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Visual Studio Code</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">GitHub</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Microsoft Office</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Visio</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Installation & Troubleshooting</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md card-hover md:col-span-2 lg:col-span-3">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-800">Professional Attributes</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="inline-block bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded-full">Punctual</span>
-                        <span class="inline-block bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded-full">Professional</span>
-                        <span class="inline-block bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded-full">Detail Oriented</span>
-                        <span class="inline-block bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded-full">Always Willing to Learn</span>
+                <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm card-hover md:col-span-2 lg:col-span-3">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center border border-teal-100">
+                            <i class="fa-solid fa-user-check" aria-hidden="true"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-bold text-gray-900 tracking-tight mb-3">Professional Attributes</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Professional</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Detail Oriented</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Punctual</span>
+                                <span class="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700">Always Willing to Learn</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -541,6 +639,7 @@
                     <a href="#about" class="text-gray-400 hover:text-white">About</a>
                     <a href="#education" class="text-gray-400 hover:text-white">Education</a>
                     <a href="#skills" class="text-gray-400 hover:text-white">Skills</a>
+                    <a href="#certifications" class="text-gray-400 hover:text-white">Certifications</a>
                     <a href="#contact" class="text-gray-400 hover:text-white">Contact</a>
                 </div>
             </div>
@@ -550,6 +649,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260312"></script>
 </body>
 </html>

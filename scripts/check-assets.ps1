@@ -49,7 +49,8 @@ $errors = @()
 # Check local paths
 foreach ($lp in $localPaths) {
     # Normalize relative path
-    $norm = $lp.TrimStart('/')
+    $clean = ($lp -replace '[?#].*$', '')
+    $norm = $clean.TrimStart('/')
     $full = Join-Path $Root $norm
     if (!(Test-Path $full)) {
         $errors += "Missing local asset: $lp (resolved: $full)"

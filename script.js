@@ -305,7 +305,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             body.className = 'p-6 flex-1 flex flex-col';
 
             const title = document.createElement('h3');
-            title.className = 'text-xl font-semibold mb-2 text-blue-800';
+            title.className = 'text-xl font-bold mb-2 text-gray-900 tracking-tight';
             title.textContent = item.title || item.name;
 
             const desc = document.createElement('p');
