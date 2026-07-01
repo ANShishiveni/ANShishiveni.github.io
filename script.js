@@ -177,9 +177,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         nextBtn.onclick = () => { index = (index + 1) % snapshots.length; render(); };
         closeBtn.onclick = () => { modal.close(); };
 
+        // Save scroll position before locking body
+        const scrollY = window.scrollY;
+
         // Handle Escape key and click outside backdrop natively
         modal.onclose = () => {
             document.documentElement.style.overflow = '';
+            window.scrollTo(0, scrollY);
         };
 
         modal.onclick = (e) => {
