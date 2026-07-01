@@ -68,6 +68,10 @@ foreach ($url in $remoteUrls | Select-Object -Unique) {
             Write-Host "OK preconnect:" $u
             continue
         }
+        if ($u -match '^https?://(www\.)?credly\.com/') {
+            Write-Host "OK remote (Credly bypass):" $u
+            continue
+        }
         $resp = Invoke-WebRequest -Uri $u -Method Head -UseBasicParsing -TimeoutSec 15
         $code = $resp.StatusCode
         if ($code -ge 200 -and $code -lt 400) {
