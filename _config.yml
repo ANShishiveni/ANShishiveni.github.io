@@ -1,0 +1,9 @@
+title: "AN Shishiveni Portfolio"
+description: "Portfolio showcasing projects and experience"
+theme: null
+markdown: kramdown
+plugins: []
+# For user site (username.github.io), keep baseurl empty.
+baseurl: ""
+# If deploying as a project site (non-username.github.io), set baseurl to "/<repo-name>"
+# baseurl: "/My_Landing_Page"

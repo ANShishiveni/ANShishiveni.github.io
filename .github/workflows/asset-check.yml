@@ -1,0 +1,16 @@
+name: Asset Path Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check-assets:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run asset path validation
+        shell: pwsh
+        run: |
+          ./scripts/check-assets.ps1
