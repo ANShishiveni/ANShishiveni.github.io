@@ -179,7 +179,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
         // Handle Escape key and click outside backdrop natively
         modal.onclose = () => {
-            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
         };
 
         modal.onclick = (e) => {
@@ -204,7 +204,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
         render();
         modal.showModal();
-        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
         closeBtn.focus();
     }
 
