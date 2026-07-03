@@ -1,13 +1,13 @@
-# My Landing Page
+# Landing Page
 
 ## Overview
-A GitHub Pages-compatible portfolio website showcasing projects fetched from your GitHub profile, with a manual configuration fallback.
+A GitHub Pages-compatible portfolio website showcasing projects, skills and education 
 
 ## Features
 - Responsive layout optimized for GitHub Pages
 - Projects section with titles, descriptions, technologies, demos, and repo links
 - Dynamic fetching from GitHub API (with manual `resources/projects.json` fallback)
-- Consistent color scheme and professional typography (Inter)
+- Consistent color scheme and professional typography.
 - Mobile-first design with optimized asset paths
 
 ## Configuration
@@ -29,21 +29,12 @@ A GitHub Pages-compatible portfolio website showcasing projects fetched from you
 - All local assets use relative paths (e.g., `resources/...`) to work under both root and subpath deployments.
 - Thumbnails auto-resolve from `resources/projects/<repo-name>.png`; if missing, a placeholder is used.
 
-## Development
-- Start a local server:
-  ```
-  python -m http.server 5500
-  ```
-- Visit `http://localhost:5500/`.
-
 ## CI
 - Asset path checks via PowerShell script `scripts/check-assets.ps1` and workflow `.github/workflows/asset-check.yml`.
 
 ## Notes
-- EmailJS requires replacing placeholders in `script.js`.
-- To improve performance, consider optimizing images in `resources/` and adding `loading="lazy"` to non-hero images.
 
-This project is a static landing page built with plain HTML, CSS, and JavaScript. It uses Tailwind CSS, Font Awesome, and EmailJS via CDNs. There is no build system; the site is served as static files.
+This project is a static landing page built with plain HTML, CSS, and JavaScript. It uses Tailwind CSS, and Font Awesome. There is no build system; the site is served as static files.
 
 ## Path Resolution Strategy
 
@@ -53,21 +44,6 @@ This project is a static landing page built with plain HTML, CSS, and JavaScript
 - External dependencies are loaded via absolute HTTPS URLs (CDNs).
 - Avoid leading slashes in local asset references to prevent broken links when the site is not served from the domain root.
 
-## Asset References
-
-- Favicon: `resources/profile.png`
-- Images: `resources/profile.png`, `resources/it-essentials.png`, `resources/NetworkingEssentials.png`
-- Document: `resources/CV.pdf`
-- Stylesheet: `style.css`
-- Script: `script.js`
-- CDNs: Tailwind (`https://cdn.tailwindcss.com`), Font Awesome CSS, EmailJS browser SDK
-
-## Development
-
-1. Serve the project locally (any static server). Example with Python:
-   - `python -m http.server 5500`
-   - Open `http://localhost:5500/`
-2. Verify images, favicon, and CV download work.
 
 ## Automated Asset Checks
 
