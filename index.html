@@ -40,8 +40,8 @@
   }
 </script>
 <style>
-  html { -webkit-text-size-adjust: 100%; }
-  body { background-color: #FFFFFF; color: #555555; overflow-x: hidden; }
+  html { -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+  body { background-color: #FFFFFF; color: #555555; overflow-x: hidden; width: 100%; position: relative; }
   ::selection { background: rgba(8, 145, 178, 0.2); color: #164e63; }
 
   /* ---------- surfaces ---------- */
@@ -63,7 +63,7 @@
   .reveal.is-visible { opacity: 1; transform: none; }
 
   /* ---------- marquee ---------- */
-  .marquee-wrap { -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .marquee-wrap { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
   .marquee { display: flex; width: max-content; gap: 2.75rem; animation: slide 42s linear infinite; }
   .marquee-wrap:hover .marquee { animation-play-state: paused; }
   @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -257,8 +257,8 @@
       </div>
 
       <!-- terminal -->
-      <div class="reveal lg:col-span-5" style="transition-delay:.2s">
-        <div class="overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 shadow-md transition-all hover:shadow-lg">
+      <div class="reveal lg:col-span-5 min-w-0 w-full" style="transition-delay:.2s">
+        <div class="overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 shadow-md transition-all hover:shadow-lg w-full">
           <div class="flex items-center gap-2 border-b border-gray-200 bg-gray-100/50 px-4 py-3">
             <span class="h-3 w-3 rounded-full bg-[#eb6a5e]"></span>
             <span class="h-3 w-3 rounded-full bg-[#f4bf4f]"></span>
