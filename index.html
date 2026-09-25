@@ -1,672 +1,1060 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Absalom Ndinomwene Shishiveni, a Computer Science Graduate specializing in software engineering, cybersecurity, and networking. Check out my projects and certifications.">
-    <meta name="keywords" content="Absalom Shishiveni, Computer Science Graduate, Portfolio, Cybersecurity, Web Developer">
-    <!-- Open Graph tags for LinkedIn Preview -->
-    <meta property="og:title" content="Absalom Ndinomwene Shishiveni | Cybersecurity & Systems Engineer">
-    <meta property="og:description" content="Portfolio of Absalom Ndinomwene Shishiveni, specializing in secure software engineering, network defense, and systems protection.">
-    <meta property="og:image" content="https://anshishiveni.github.io/resources/profile.webp">
-    <meta property="og:url" content="https://anshishiveni.github.io/">
-    <meta property="og:type" content="website">
-    <title>Absalom Ndinomwene Shishiveni | Computer Science Graduate</title>
-    <link rel="icon" type="image/webp" href="resources/profile.webp">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    <link rel="stylesheet" href="style.css?v=20260312">
-    <link rel="preload" as="image" href="resources/profile.webp" fetchpriority="high">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Absalom Ndinomwene Shishiveni — Cybersecurity &amp; Software Engineer</title>
+<meta name="description" content="Computer Science Honours graduate and ISC2-certified cybersecurity professional based in Windhoek, Namibia. Secure software engineering, network systems defence and secure application development." />
+<meta name="theme-color" content="#ffffff" />
+<meta property="og:title" content="Absalom Ndinomwene Shishiveni — Cybersecurity &amp; Software Engineer" />
+<meta property="og:description" content="Secure software engineering, network systems defence and secure application development. ISC2-certified, based in Windhoek, Namibia." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://anshishiveni.github.io/" />
+<meta property="og:image" content="https://anshishiveni.github.io/resources/profile.webp" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://anshishiveni.github.io/resources/profile.webp" />
+<link rel="icon" type="image/webp" href="resources/profile.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        },
+        maxWidth: { '8xl': '90rem' },
+        colors: {
+          brand: {
+            black: '#111827', /* gray-900 for softer contrast */
+            charcoal: '#374151', /* gray-700 */
+            slate: '#6b7280', /* gray-500 */
+            light: '#F9F9F9',
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { -webkit-text-size-adjust: 100%; }
+  body { background-color: #FFFFFF; color: #555555; overflow-x: hidden; }
+  ::selection { background: rgba(8, 145, 178, 0.2); color: #164e63; }
+
+  /* ---------- surfaces ---------- */
+  .panel {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  }
+  .panel-hover { transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s, box-shadow .35s; }
+  .panel-hover:hover {
+    transform: translateY(-4px);
+    border-color: #000000;
+    box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1); }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* ---------- marquee ---------- */
+  .marquee-wrap { -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .marquee { display: flex; width: max-content; gap: 2.75rem; animation: slide 42s linear infinite; }
+  .marquee-wrap:hover .marquee { animation-play-state: paused; }
+  @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .chev { transform: rotate(90deg); }
+  .chev { transition: transform .3s ease; }
+
+  :focus-visible { outline: 2px solid #0891B2; outline-offset: 3px; border-radius: .35rem; }
+  ::-webkit-scrollbar { width: 11px; height: 11px; }
+  ::-webkit-scrollbar-track { background: #F3F4F6; }
+  ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 99px; border: 3px solid #F3F4F6; }
+  ::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
+
+  .skip {
+    position: absolute; left: -9999px; top: .75rem; z-index: 100;
+    background: #111111; color: #FFFFFF; padding: .6rem 1rem; border-radius: .5rem; border: 1px solid #E5E7EB;
+  }
+  .skip:focus { left: .75rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee { animation: none; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Chip styles */
+  .chip { display:inline-block; border:1px solid #E5E7EB; background:#FFFFFF; color:#555555; font-size:.78rem; padding:.35rem .7rem; border-radius:.6rem; font-weight: 500; }
+
+  /* ---------- JS Animations ---------- */
+  .filter-btn { border:1px solid #E5E7EB; background:#FFFFFF; color:#6B7280; font-weight: 600; font-size:.85rem; padding:.55rem 1rem; border-radius:.75rem; transition:all 0.2s; }
+  .filter-btn:hover { color:#111827; border-color:#1f2937; }
+  .filter-btn.is-active { background:#1f2937; border-color:#1f2937; color:#FFFFFF; }
+  .project.is-hidden { display:none !important; }
+
+  .project { position: relative; overflow: hidden; }
+  .project::before {
+    content: ""; position: absolute; inset: 0; border-radius: inherit;
+    opacity: 0; transition: opacity 0.3s ease;
+    background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(8, 145, 178, 0.08), transparent 40%);
+    pointer-events: none; z-index: 0;
+  }
+  .project:hover::before { opacity: 1; }
+  .project > * { position: relative; z-index: 1; }
+  
+  .magnetic-btn {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, box-shadow 0.2s;
+    will-change: transform;
+  }
+  .magnetic-btn:hover {
+    transition: transform 0.1s linear, background-color 0.2s, box-shadow 0.2s;
+  }
+  
+  @keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .stagger-1 { animation: slideUpFade 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s forwards; opacity: 0; display: inline-block; }
+  .stagger-2 { animation: slideUpFade 0.9s cubic-bezier(0.16,1,0.3,1) 0.25s forwards; opacity: 0; display: inline-block; }
+  .stagger-3 { animation: slideUpFade 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s forwards; opacity: 0; display: inline-block; }
+
+</style>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
-<body class="font-sans antialiased text-slate-200 bg-slate-950 selection:bg-cyan-500/30 selection:text-cyan-200">
-    <!-- Navigation -->
-    <nav class="glass sticky top-0 z-50 border-b border-slate-900 shadow-lg shadow-black/20">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
-                <div class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">A N Shishiveni</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-slate-300 hover:text-cyan-400 px-3 py-3 transition duration-300 text-sm font-semibold">Home</a>
-                    <a href="#about" class="nav-link text-slate-300 hover:text-cyan-400 px-3 py-3 transition duration-300 text-sm font-semibold">About</a>
-                    <a href="#certifications" class="nav-link text-slate-300 hover:text-cyan-400 px-3 py-3 transition duration-300 text-sm font-semibold">Certifications</a>
-                    <a href="#projects" class="nav-link text-slate-300 hover:text-cyan-400 px-3 py-3 transition duration-300 text-sm font-semibold">Projects</a>
-                    <a href="#skills" class="nav-link text-slate-300 hover:text-cyan-400 px-3 py-3 transition duration-300 text-sm font-semibold">Skills</a>
-                    <a href="#education" class="nav-link text-slate-300 hover:text-cyan-400 px-3 py-3 transition duration-300 text-sm font-semibold">Education</a>
-                    <a href="#contact" class="nav-link text-slate-300 hover:text-cyan-400 px-3 py-3 transition duration-300 text-sm font-semibold">Contact</a>
-                </div>
-                <div class="md:hidden">
-                    <button id="menu-btn" class="text-slate-300 hover:text-cyan-400 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-slate-900/60">
-                <a href="#home" class="block py-3 min-h-12 text-lg text-slate-300 hover:text-cyan-400 transition">Home</a>
-                <a href="#about" class="block py-3 min-h-12 text-lg text-slate-300 hover:text-cyan-400 transition">About</a>
-                <a href="#certifications" class="block py-3 min-h-12 text-lg text-slate-300 hover:text-cyan-400 transition">Certifications</a>
-                <a href="#projects" class="block py-3 min-h-12 text-lg text-slate-300 hover:text-cyan-400 transition">Projects</a>
-                <a href="#skills" class="block py-3 min-h-12 text-lg text-slate-300 hover:text-cyan-400 transition">Skills</a>
-                <a href="#education" class="block py-3 min-h-12 text-lg text-slate-300 hover:text-cyan-400 transition">Education</a>
-                <a href="#contact" class="block py-3 min-h-12 text-lg text-slate-300 hover:text-cyan-400 transition">Contact</a>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black text-slate-100 py-24 border-b border-slate-900">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center relative z-10">
-            <div class="md:w-1/2 mb-10 md:mb-0 order-2 md:order-1">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight leading-tight">Hi, I'm <span class="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Absalom Ndinomwene Shishiveni</span></h1>
-                <h2 class="text-2xl md:text-3xl font-mono text-cyan-400 mb-6">&lt;Cybersecurity & Systems Engineer /&gt;</h2>
-                <p class="text-lg text-slate-400 mb-8 leading-relaxed max-w-xl">A systems and cybersecurity professional specializing in secure software engineering, network systems defense, and secure application development. Certified by ISC2 and Cisco.</p>
-                <div class="flex space-x-4">
-                    <a href="#contact" class="bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 px-6 py-3 rounded-lg font-bold hover:from-cyan-400 hover:to-emerald-400 transition duration-300 shadow-lg shadow-cyan-500/10 hover:scale-[1.02]">Contact Me</a>
-                    <a href="#about" class="border border-slate-800 bg-slate-900/40 text-slate-300 px-6 py-3 rounded-lg font-semibold hover:bg-slate-800 hover:text-white transition duration-300">About Me</a>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center order-1 md:order-2 mb-8 md:mb-0">
-                <div class="glow-ring group">
-                    <img src="resources/profile.webp" alt="Profile" class="rounded-full object-cover w-64 h-64 border border-slate-950/60 shadow-2xl transition duration-500 hover:scale-[1.02]" width="256" height="256" fetchpriority="high" />
-                </div>
-            </div>
+<body class="font-sans antialiased">
+<a href="#main" class="skip text-sm font-medium">Skip to content</a>
+
+<div class="relative z-10">
+
+  <!-- ============ NAV ============ -->
+  <header id="siteHeader" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+    <div class="mx-auto max-w-8xl px-5 sm:px-8">
+      <nav class="mt-4 flex items-center justify-between rounded-2xl border border-gray-200 bg-white/85 px-5 py-3 backdrop-blur-xl shadow-sm" aria-label="Primary">
+        <a href="#top" class="group flex items-center gap-3">
+          <img src="resources/profile.webp" alt="Absalom" width="40" height="40" class="h-10 w-10 object-cover rounded-full border border-gray-200 transition-transform group-hover:scale-105" />
+          <span class="hidden leading-tight sm:block">
+            <span class="block text-[15px] font-bold tracking-tight text-brand-charcoal">Absalom Shishiveni</span>
+            <span class="block text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400 mt-0.5">Security · Systems</span>
+          </span>
+        </a>
+
+        <ul class="hidden items-center gap-1 lg:flex">
+          <li><a data-nav href="#about" class="rounded-lg px-4 py-2 text-sm font-semibold text-gray-500 transition hover:bg-gray-100 hover:text-black">About</a></li>
+          <li><a data-nav href="#skills" class="rounded-lg px-4 py-2 text-sm font-semibold text-gray-500 transition hover:bg-gray-100 hover:text-black">Skills</a></li>
+          <li><a data-nav href="#projects" class="rounded-lg px-4 py-2 text-sm font-semibold text-gray-500 transition hover:bg-gray-100 hover:text-black">Projects</a></li>
+          <li><a data-nav href="#credentials" class="rounded-lg px-4 py-2 text-sm font-semibold text-gray-500 transition hover:bg-gray-100 hover:text-black">Credentials</a></li>
+          <li><a data-nav href="#contact" class="rounded-lg px-4 py-2 text-sm font-semibold text-gray-500 transition hover:bg-gray-100 hover:text-black">Contact</a></li>
+        </ul>
+
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/ANShishiveni" target="_blank" rel="noopener noreferrer"
+             class="hidden items-center gap-2 rounded-xl border border-gray-200 px-4 py-2.5 text-sm font-semibold text-brand-charcoal transition hover:border-black hover:bg-gray-50 sm:inline-flex">
+            <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.06-.72.08-.7.08-.7 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.4-1.27.73-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.05.78 2.13v3.16c0 .3.2.66.8.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+            GitHub
+          </a>
+          <a href="mailto:anshishiveni@gmail.com"
+             class="magnetic-btn hidden rounded-xl bg-cyan-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-cyan-700 md:inline-block">
+            Hire me
+          </a>
+          <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"
+                  class="grid h-10 w-10 place-items-center rounded-xl border border-gray-200 text-brand-charcoal transition hover:border-black lg:hidden">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+          </button>
         </div>
+      </nav>
+
+      <div id="mobileMenu" class="hidden mt-2 overflow-hidden rounded-2xl border border-gray-200 bg-white p-3 shadow-lg lg:hidden">
+        <ul class="grid gap-1">
+          <li><a href="#about" class="block rounded-lg px-4 py-3 text-sm font-semibold text-brand-charcoal hover:bg-gray-50">About</a></li>
+          <li><a href="#skills" class="block rounded-lg px-4 py-3 text-sm font-semibold text-brand-charcoal hover:bg-gray-50">Skills</a></li>
+          <li><a href="#projects" class="block rounded-lg px-4 py-3 text-sm font-semibold text-brand-charcoal hover:bg-gray-50">Projects</a></li>
+          <li><a href="#credentials" class="block rounded-lg px-4 py-3 text-sm font-semibold text-brand-charcoal hover:bg-gray-50">Credentials</a></li>
+          <li><a href="#contact" class="block rounded-lg px-4 py-3 text-sm font-semibold text-brand-charcoal hover:bg-gray-50">Contact</a></li>
+        </ul>
+        <div class="mt-2 grid grid-cols-2 gap-2 border-t border-gray-100 pt-3">
+          <a href="https://github.com/ANShishiveni" target="_blank" rel="noopener noreferrer" class="rounded-lg border border-gray-200 px-4 py-2.5 text-center text-sm font-semibold text-brand-charcoal">GitHub</a>
+          <a href="mailto:anshishiveni@gmail.com" class="rounded-lg bg-cyan-600 px-4 py-2.5 text-center text-sm font-bold text-white transition hover:bg-cyan-700">Email me</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="mx-auto max-w-8xl px-5 pt-36 sm:px-8 sm:pt-44">
+
+    <!-- ============ HERO ============ -->
+    <section id="top" class="grid items-center gap-16 lg:grid-cols-12 lg:gap-12">
+      <div class="lg:col-span-7">
+        <span class="reveal inline-flex items-center gap-2.5 rounded-full border border-cyan-200 bg-cyan-50 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-cyan-700">
+          <span class="relative flex h-2 w-2"><span class="h-2 w-2 rounded-full bg-cyan-600"></span></span>
+          Open to security &amp; software roles
+        </span>
+
+        <h1 class="mt-8 text-[2.75rem] font-extrabold leading-[1.05] tracking-tighter text-brand-black sm:text-6xl lg:text-[4.5rem]">
+          <div class="flex items-center flex-wrap gap-x-6 gap-y-4">
+            <img src="resources/profile.webp" alt="Absalom Shishiveni" width="128" height="128" fetchpriority="high" class="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-full border-4 border-white shadow-xl stagger-1 inline-block align-middle" />
+            <span class="inline-block align-middle">
+              <span class="stagger-1 block">Absalom</span> 
+              <span class="stagger-2 block">Ndinomwene</span>
+              <span class="stagger-3 block">Shishiveni</span>
+            </span>
+          </div>
+        </h1>
+
+        <p class="reveal mt-6 text-sm font-bold uppercase tracking-widest text-gray-500" style="transition-delay:.1s">
+          Security-first software engineer · network systems defence
+        </p>
+
+        <p class="reveal mt-6 max-w-xl text-lg leading-relaxed text-brand-slate" style="transition-delay:.15s">
+          Computer Science <strong class="font-semibold text-brand-black">Honours graduate</strong> and
+          <strong class="font-semibold text-brand-black">ISC2-certified</strong> cybersecurity professional. I build secure, scalable
+          applications and resilient network architectures — combining an academic programming foundation with
+          industry-recognised training in threat analysis and systems protection.
+        </p>
+
+        <div class="reveal mt-10 flex flex-wrap items-center gap-4" style="transition-delay:.2s">
+          <a href="mailto:anshishiveni@gmail.com"
+             class="magnetic-btn group inline-flex items-center gap-2 rounded-xl bg-cyan-600 px-6 py-3.5 text-sm font-bold text-white hover:bg-cyan-700 hover:shadow-lg hover:shadow-black/10">
+            Start a conversation
+            <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </a>
+          <a href="#projects" class="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-6 py-3.5 text-sm font-bold text-brand-charcoal transition-all hover:border-black hover:bg-gray-50 hover:shadow-sm">
+            See selected work
+          </a>
+          <button type="button" data-copy="anshishiveni@gmail.com"
+                  class="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-3.5 text-sm font-semibold text-gray-600 transition-all hover:border-black hover:text-black">
+            <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 5.5A2.5 2.5 0 0 0 12.5 3h-6A3.5 3.5 0 0 0 3 6.5v6A2.5 2.5 0 0 0 5.5 15"/></svg>
+            <span data-copy-label>Copy email</span>
+          </button>
+        </div>
+
+        <dl class="reveal mt-16 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-gray-200 pt-10 sm:grid-cols-4" style="transition-delay:.25s">
+          <div>
+            <dt class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Based in</dt>
+            <dd class="mt-2 text-sm font-bold text-brand-charcoal">Windhoek, Namibia</dd>
+          </div>
+          <div>
+            <dt class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Graduated</dt>
+            <dd class="mt-2 text-sm font-bold text-brand-charcoal">BSc CS Honours · 2026</dd>
+          </div>
+          <div>
+            <dt class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Certifications</dt>
+            <dd class="mt-2 text-sm font-bold text-brand-charcoal">ISC2 CC + Cisco tracks</dd>
+          </div>
+          <div>
+            <dt class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Repositories</dt>
+            <dd class="mt-2 text-sm font-bold text-brand-charcoal">6 public on GitHub</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- terminal -->
+      <div class="reveal lg:col-span-5" style="transition-delay:.2s">
+        <div class="overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 shadow-md transition-all hover:shadow-lg">
+          <div class="flex items-center gap-2 border-b border-gray-200 bg-gray-100/50 px-4 py-3">
+            <span class="h-3 w-3 rounded-full bg-[#eb6a5e]"></span>
+            <span class="h-3 w-3 rounded-full bg-[#f4bf4f]"></span>
+            <span class="h-3 w-3 rounded-full bg-[#61c554]"></span>
+            <span class="ml-2 font-mono text-[12px] text-gray-500 font-semibold">shishiveni@secure:~</span>
+          </div>
+          <pre class="overflow-x-auto p-5 font-mono text-[12.5px] leading-relaxed sm:text-[13px]"><code><span class="text-gray-400 font-bold">$</span> <span class="text-brand-charcoal font-bold">whoami</span>
+<span class="text-cyan-600 font-semibold">absalom.ndinomwene.shishiveni</span>
+
+<span class="text-gray-400 font-bold">$</span> <span class="text-brand-charcoal font-bold">cat focus.txt</span>
+<span class="text-brand-slate font-medium">secure software engineering
+network systems defence
+secure application development</span>
+
+<span class="text-gray-400 font-bold">$</span> <span class="text-brand-charcoal font-bold">./verify --credentials</span>
+<span class="text-emerald-600 font-bold">[ ok ]</span> <span class="text-brand-slate font-medium">ISC2 Certified in Cybersecurity (CC)</span>
+<span class="text-emerald-600 font-bold">[ ok ]</span> <span class="text-brand-slate font-medium">Cisco CCNA: Introduction to Networks</span>
+<span class="text-emerald-600 font-bold">[ ok ]</span> <span class="text-brand-slate font-medium">Cisco Introduction to Cybersecurity</span>
+<span class="text-emerald-600 font-bold">[ ok ]</span> <span class="text-brand-slate font-medium">BSc Computer Science (Honours), UNAM</span>
+
+<span class="text-gray-400 font-bold">$</span> <span class="text-brand-charcoal font-bold">status</span>
+<span class="text-amber-600 font-bold">→ open to graduate &amp; junior cybersecurity roles</span>
+<span class="text-gray-400 font-bold">$</span> <span class="inline-block h-3.5 w-2 bg-cyan-600 animate-pulse align-middle"></span></code></pre>
+        </div>
+      </div>
     </section>
 
-    <!-- Tools Section -->
-    <section id="tools" class="py-12 bg-slate-950 border-b border-slate-900">
-        <div class="container mx-auto px-6">
-            <div class="tools-scroller">
-                <div class="tools-track">
-                    <!-- HTML5 -->
-                    <div class="tile">
-                        <i class="devicon-html5-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">HTML5</span>
-                    </div>
-                    <!-- CSS3 -->
-                    <div class="tile">
-                        <i class="devicon-css3-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">CSS3</span>
-                    </div>
-                    <!-- JavaScript -->
-                    <div class="tile">
-                        <i class="devicon-javascript-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">JavaScript</span>
-                    </div>
-                    <!-- C# -->
-                    <div class="tile">
-                        <i class="devicon-csharp-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">C#</span>
-                    </div>
-                    <!-- Java -->
-                    <div class="tile">
-                        <i class="devicon-java-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Java</span>
-                    </div>
-                    <!-- Python -->
-                    <div class="tile">
-                        <i class="devicon-python-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Python</span>
-                    </div>
-                    <!-- React -->
-                    <div class="tile">
-                        <i class="devicon-react-original text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">React / React Native</span>
-                    </div>
-                    <!-- Flutter -->
-                    <div class="tile">
-                        <i class="devicon-flutter-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Flutter</span>
-                    </div>
-                    <!-- Tailwind CSS -->
-                    <div class="tile">
-                        <i class="devicon-tailwindcss-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Tailwind CSS</span>
-                    </div>
-                    <!-- GitHub -->
-                    <div class="tile">
-                        <i class="fa-brands fa-github text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">GitHub</span>
-                    </div>
-                    <!-- VS Code -->
-                    <div class="tile">
-                        <i class="devicon-vscode-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Visual Studio Code</span>
-                    </div>
-                    <!-- Microsoft -->
-                    <div class="tile">
-                        <i class="fa-brands fa-microsoft text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Microsoft Office</span>
-                    </div>
-                    <!-- Cisco Packet Tracer -->
-                    <div class="tile">
-                        <i class="fa-solid fa-network-wired text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Cisco Packet Tracer</span>
-                    </div>
-                    <!-- WEKA -->
-                    <div class="tile">
-                        <i class="fa-solid fa-brain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">WEKA</span>
-                    </div>
-                    <!-- Google Colab -->
-                    <div class="tile">
-                        <i class="fa-brands fa-google text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Google Colab</span>
-                    </div>
-                    <!-- Windows -->
-                    <div class="tile">
-                        <i class="fa-brands fa-windows text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Windows OS</span>
-                    </div>
-                    <!-- Ubuntu -->
-                    <div class="tile">
-                        <i class="fa-brands fa-ubuntu text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Ubuntu OS</span>
-                    </div>
-                    <!-- Visio -->
-                    <div class="tile">
-                        <i class="fa-solid fa-diagram-project text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Microsoft Visio</span>
-                    </div>
-
-                    <!-- Duplicate set for seamless looping -->
-                    <div class="tile">
-                        <i class="devicon-html5-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">HTML5</span>
-                    </div>
-                    <div class="tile">
-                        <i class="devicon-css3-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">CSS3</span>
-                    </div>
-                    <div class="tile">
-                        <i class="devicon-javascript-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">JavaScript</span>
-                    </div>
-                    <div class="tile">
-                        <i class="devicon-csharp-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">C#</span>
-                    </div>
-                    <div class="tile">
-                        <i class="devicon-java-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Java</span>
-                    </div>
-                    <div class="tile">
-                        <i class="devicon-python-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Python</span>
-                    </div>
-                    <div class="tile">
-                        <i class="devicon-react-original text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">React / React Native</span>
-                    </div>
-                    <div class="tile">
-                        <i class="devicon-flutter-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Flutter</span>
-                    </div>
-                    <div class="tile">
-                        <i class="devicon-tailwindcss-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Tailwind CSS</span>
-                    </div>
-                    <div class="tile">
-                        <i class="fa-brands fa-github text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">GitHub</span>
-                    </div>
-                    <div class="tile">
-                        <i class="devicon-vscode-plain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Visual Studio Code</span>
-                    </div>
-                    <div class="tile">
-                        <i class="fa-brands fa-microsoft text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Microsoft Office</span>
-                    </div>
-                    <div class="tile">
-                        <i class="fa-solid fa-network-wired text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Cisco Packet Tracer</span>
-                    </div>
-                    <div class="tile">
-                        <i class="fa-solid fa-brain text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">WEKA</span>
-                    </div>
-                    <div class="tile">
-                        <i class="fa-brands fa-google text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Google Colab</span>
-                    </div>
-                    <div class="tile">
-                        <i class="fa-brands fa-windows text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Windows OS</span>
-                    </div>
-                    <div class="tile">
-                        <i class="fa-brands fa-ubuntu text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Ubuntu OS</span>
-                    </div>
-                    <div class="tile">
-                        <i class="fa-solid fa-diagram-project text-3xl" aria-hidden="true"></i>
-                        <span class="sr-only">Microsoft Visio</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- ============ MARQUEE ============ -->
+    <section class="marquee-wrap mt-24 border-y border-gray-100 bg-gray-50/50 py-8" aria-label="Technologies">
+      <div class="marquee text-[13px] font-bold uppercase tracking-widest text-gray-300">
+        <span class="flex gap-16 items-center">
+          <span class="flex items-center gap-2.5"><i class="devicon-python-plain colored text-[22px]"></i> Python</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-csharp-plain colored text-[22px]"></i> C#</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-java-plain colored text-[22px]"></i> Java</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-javascript-plain colored text-[22px]"></i> JavaScript</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-react-original colored text-[22px]"></i> React</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-react-original colored text-[22px]"></i> React Native</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-flutter-plain colored text-[22px]"></i> Flutter</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-tailwindcss-original colored text-[22px]"></i> Tailwind CSS</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-html5-plain colored text-[22px]"></i> HTML5</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-css3-plain colored text-[22px]"></i> CSS3</span>
+          <span class="flex items-center gap-2.5"><span class="h-1.5 w-1.5 rounded-full bg-cyan-600"></span> Cisco Packet Tracer</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-ubuntu-plain colored text-[22px]"></i> Ubuntu</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-windows8-original colored text-[22px]"></i> Windows</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-github-original colored text-[22px]"></i> GitHub</span>
+          <span class="flex items-center gap-2.5"><span class="h-1.5 w-1.5 rounded-full bg-cyan-600"></span> WEKA</span>
+          <span class="flex items-center gap-2.5"><span class="h-1.5 w-1.5 rounded-full bg-cyan-600"></span> Google Colab</span>
+          <span class="flex items-center gap-2.5"><span class="h-1.5 w-1.5 rounded-full bg-cyan-600"></span> Microsoft Visio</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-vscode-plain colored text-[22px]"></i> VS Code</span>
+        </span>
+        <span class="flex gap-16 items-center" aria-hidden="true">
+          <span class="flex items-center gap-2.5"><i class="devicon-python-plain colored text-[22px]"></i> Python</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-csharp-plain colored text-[22px]"></i> C#</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-java-plain colored text-[22px]"></i> Java</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-javascript-plain colored text-[22px]"></i> JavaScript</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-react-original colored text-[22px]"></i> React</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-react-original colored text-[22px]"></i> React Native</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-flutter-plain colored text-[22px]"></i> Flutter</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-tailwindcss-original colored text-[22px]"></i> Tailwind CSS</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-html5-plain colored text-[22px]"></i> HTML5</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-css3-plain colored text-[22px]"></i> CSS3</span>
+          <span class="flex items-center gap-2.5"><span class="h-1.5 w-1.5 rounded-full bg-cyan-600"></span> Cisco Packet Tracer</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-ubuntu-plain colored text-[22px]"></i> Ubuntu</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-windows8-original colored text-[22px]"></i> Windows</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-github-original colored text-[22px]"></i> GitHub</span>
+          <span class="flex items-center gap-2.5"><span class="h-1.5 w-1.5 rounded-full bg-cyan-600"></span> WEKA</span>
+          <span class="flex items-center gap-2.5"><span class="h-1.5 w-1.5 rounded-full bg-cyan-600"></span> Google Colab</span>
+          <span class="flex items-center gap-2.5"><span class="h-1.5 w-1.5 rounded-full bg-cyan-600"></span> Microsoft Visio</span>
+          <span class="flex items-center gap-2.5"><i class="devicon-vscode-plain colored text-[22px]"></i> VS Code</span>
+        </span>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 bg-slate-950/30 border-b border-slate-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">About Me</h2>
-            <div class="flex flex-col md:flex-row gap-8">
-                <div class="md:w-1/2 flex flex-col h-full">
-                    <h3 class="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-4 border-l-2 border-cyan-500 pl-3">Who I Am</h3>
-                    <div class="cyber-card p-6 rounded-xl flex-grow">
-                        <p class="text-slate-300 leading-relaxed mb-6">I build secure, scalable applications and resilient network architectures. As a Computer Science Honours graduate and ISC2-certified cybersecurity professional, I combine an academic programming foundation with industry-recognized cybersecurity training in threat analysis, systems protection, and responsive full-stack engineering.</p>
-                        <p class="text-slate-300 leading-relaxed">I'm passionate about technical problem-solving, learning emerging architectures, and contributing to secure, user-friendly solutions. I value writing clean, reliable code and collaborating in growth-oriented, engineering-focused teams.</p>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex flex-col h-full">
-                    <h3 class="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-4 border-l-2 border-cyan-500 pl-3">Professional Statement</h3>
-                    <div class="cyber-card p-6 rounded-xl flex-grow">
-                        <p class="text-slate-300 leading-relaxed">I am developing strong skills in cybersecurity analysis, threat detection, and secure systems design. I value protecting users and organizations by ensuring infrastructures remain secure, compliant, and resilient. I am passionate about applying my technical background, analytical mindset, and commitment to continuous learning to help organizations strengthen their security postures and respond proactively to modern threats.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="scroll-mt-36 pt-24">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="reveal text-[11px] font-bold uppercase tracking-widest text-gray-400">01 — About</p>
+        <h2 class="reveal mt-4 text-4xl font-extrabold tracking-tight text-brand-black sm:text-5xl">Security is a design constraint, not an afterthought.</h2>
+      </div>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="py-24 bg-slate-950 border-b border-slate-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Certifications</h2>
-            <div class="flex flex-wrap justify-center gap-8">
-                <!-- Certified in Cybersecurity (CC) -->
-                <div class="cyber-card p-6 rounded-xl flex flex-col w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)]">
-                    <div class="flex items-center mb-4">
-                        <img src="resources/certified-in-cybersecurity-cc.1.webp" alt="Certified in Cybersecurity Badge" class="w-16 h-16 mr-4 rounded-lg border border-cyan-900/20 shadow" loading="lazy" />
-                        <h4 class="text-lg font-bold text-white leading-tight">Certified in Cybersecurity (CC)</h4>
-                    </div>
-                    <div class="mb-4">
-                        <p class="text-xs text-emerald-400 font-semibold mb-2">ISC2 | 2026–2029</p>
-                        <p class="text-slate-400 text-sm leading-relaxed">The vendor-neutral CC credential starts newcomers on their path to advanced cybersecurity certifications and future leadership roles. It proves to organizations that newly certified team members understand fundamental security principles and operations, network security and access controls and that they have the skills to meet and exceed performance standards in their beginning roles. All this allows organizations to build a stronger line of defense.</p>
-                    </div>
-                    <div class="mt-auto pt-4">
-                        <a href="https://www.credly.com/badges/c633ff25-cd43-427d-b84c-ecd93573c28c/public_url" target="_blank" class="inline-block border border-slate-800 bg-slate-900/50 text-cyan-400 px-4 py-2 rounded-full text-xs font-semibold hover:bg-cyan-950/30 hover:border-cyan-800 transition duration-300">View Badge</a>
-                    </div>
-                </div>
-
-                <!-- Cisco Learn-A-Thon 2026 -->
-                <div class="cyber-card p-6 rounded-xl flex flex-col w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)]">
-                    <div class="flex items-center mb-4">
-                        <img src="resources/learn-a-thon-2026.webp" alt="Cisco Learn-A-Thon Badge" class="w-16 h-16 mr-4 rounded-lg border border-cyan-900/20 shadow" loading="lazy" />
-                        <h4 class="text-lg font-bold text-white leading-tight">Cisco Learn-A-Thon 2026</h4>
-                    </div>
-                    <div class="mb-4">
-                        <p class="text-xs text-emerald-400 font-semibold mb-2">Cisco Networking Academy | 2026</p>
-                        <ul class="list-disc pl-5 space-y-1 text-slate-400 text-sm leading-relaxed">
-                            <li>Participated in targeted academy Learn-A-Thon events</li>
-                            <li>Completed course tracks within specific campaign timeframes</li>
-                            <li>Recognized for active digital skills development and self-motivation</li>
-                        </ul>
-                    </div>
-                    <div class="mt-auto pt-4">
-                        <a href="https://www.credly.com/org/cisco/badge/cisco-networking-academy-learn-a-thon-2026" target="_blank" class="inline-block border border-slate-800 bg-slate-900/50 text-cyan-400 px-4 py-2 rounded-full text-xs font-semibold hover:bg-cyan-950/30 hover:border-cyan-800 transition duration-300">View Badge</a>
-                    </div>
-                </div>
-
-                <!-- Introduction to Cybersecurity -->
-                <div class="cyber-card p-6 rounded-xl flex flex-col w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)]">
-                    <div class="flex items-center mb-4">
-                        <img src="resources/introduction-to-cybersecurity.webp" alt="Introduction to Cybersecurity Badge" class="w-16 h-16 mr-4 rounded-lg border border-cyan-900/20 shadow" loading="lazy" />
-                        <h4 class="text-lg font-bold text-white leading-tight">Introduction to Cybersecurity</h4>
-                    </div>
-                    <div class="mb-4">
-                        <p class="text-xs text-emerald-400 font-semibold mb-2">CISCO Networking Academy | 2026</p>
-                        <ul class="list-disc pl-5 space-y-1 text-slate-400 text-sm leading-relaxed">
-                            <li>Explain the basics of being safe online, what cybersecurity is, and its impact</li>
-                            <li>Explain common cyber threats, attacks, and vulnerabilities</li>
-                            <li>Explain how to protect oneself while online</li>
-                            <li>Explain how organizations protect operations against attacks</li>
-                            <li>Access resources to explore cybersecurity career options</li>
-                        </ul>
-                    </div>
-                    <div class="mt-auto pt-4">
-                        <a href="https://www.credly.com/badges/255aade4-0974-4998-bcfa-7c6411fbc67b/public_url" target="_blank" class="inline-block border border-slate-800 bg-slate-900/50 text-cyan-400 px-4 py-2 rounded-full text-xs font-semibold hover:bg-cyan-950/30 hover:border-cyan-800 transition duration-300">View Badge</a>
-                    </div>
-                </div>
-
-                <!-- CCNA: Introduction to Networks -->
-                <div class="cyber-card p-6 rounded-xl flex flex-col w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)]">
-                    <div class="flex items-center mb-4">
-                        <img src="resources/ccna-introduction-to-networks.png" alt="CCNA: Introduction to Networks Badge" class="w-16 h-16 mr-4 rounded-lg border border-cyan-900/20 shadow" loading="lazy" />
-                        <h4 class="text-lg font-bold text-white leading-tight">CCNA: Introduction to Networks</h4>
-                    </div>
-                    <div class="mb-4">
-                        <p class="text-xs text-emerald-400 font-semibold mb-2">CISCO Networking Academy | 2026</p>
-                        <ul class="list-disc pl-5 space-y-1 text-slate-400 text-sm leading-relaxed">
-                            <li>Configure switches and end devices to provide access to local and remote network resources</li>
-                            <li>Configure routers to enable end-to-end connectivity between remote devices</li>
-                            <li>Explain how physical and data link layers support Ethernet in switched networks</li>
-                            <li>Implement IPv4 and IPv6 addressing schemes and IP services</li>
-                            <li>Troubleshoot and verify connectivity using Cisco Packet Tracer and CLI</li>
-                        </ul>
-                    </div>
-                    <div class="mt-auto pt-4">
-                        <a href="https://www.credly.com/badges/41463e2d-4820-497d-94f8-88ddea7f96a0/public_url" target="_blank" class="inline-block border border-slate-800 bg-slate-900/50 text-cyan-400 px-4 py-2 rounded-full text-xs font-semibold hover:bg-cyan-950/30 hover:border-cyan-800 transition duration-300">View Badge</a>
-                    </div>
-                </div>
-
-                <!-- IT Essentials -->
-                <div class="cyber-card p-6 rounded-xl flex flex-col w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)]">
-                    <div class="flex items-center mb-4">
-                        <img src="resources/it-essentials.webp" alt="IT Essentials Badge" class="w-16 h-16 mr-4 rounded-lg border border-cyan-900/20 shadow" loading="lazy" />
-                        <h4 class="text-lg font-bold text-white leading-tight">IT Essentials</h4>
-                    </div>
-                    <div class="mb-4">
-                        <p class="text-xs text-emerald-400 font-semibold mb-2">CISCO Networking Academy | 2023</p>
-                        <ul class="list-disc pl-5 space-y-1 text-slate-400 text-sm leading-relaxed">
-                            <li>Selected, installed, and configured computer components</li>
-                            <li>Installed and maintained Windows and Linux operating systems</li>
-                            <li>Implemented basic host, data, and network security</li>
-                            <li>Gained knowledge in virtualization and cloud computing</li>
-                        </ul>
-                    </div>
-                    <div class="mt-auto pt-4">
-                        <a href="https://www.credly.com/users/absalom-shishiveni" target="_blank" class="inline-block border border-slate-800 bg-slate-900/50 text-cyan-400 px-4 py-2 rounded-full text-xs font-semibold hover:bg-cyan-950/30 hover:border-cyan-800 transition duration-300">View Badge</a>
-                    </div>
-                </div>
-
-                <!-- Networking Essentials -->
-                <div class="cyber-card p-6 rounded-xl flex flex-col w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)]">
-                    <div class="flex items-center mb-4">
-                        <img src="resources/NetworkingEssentials.webp" alt="Networking Essentials Badge" class="w-16 h-16 mr-4 rounded-lg border border-cyan-900/20 shadow" loading="lazy" />
-                        <h4 class="text-lg font-bold text-white leading-tight">Networking Essentials</h4>
-                    </div>
-                    <div class="mb-4">
-                        <p class="text-xs text-emerald-400 font-semibold mb-2">CISCO Networking Academy | 2022</p>
-                        <ul class="list-disc pl-5 space-y-1 text-slate-400 text-sm leading-relaxed">
-                            <li>Built and configured small networks using Cisco devices</li>
-                            <li>Explained IP addressing and TCP/IP protocols</li>
-                            <li>Configured wireless routers and secured wireless clients</li>
-                            <li>Troubleshoot common network issues</li>
-                        </ul>
-                    </div>
-                    <div class="mt-auto pt-4">
-                        <a href="https://www.credly.com/users/absalom-shishiveni" target="_blank" class="inline-block border border-slate-800 bg-slate-900/50 text-cyan-400 px-4 py-2 rounded-full text-xs font-semibold hover:bg-cyan-950/30 hover:border-cyan-800 transition duration-300">View Badge</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 bg-slate-950/40 border-b border-slate-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Projects</h2>
-            <p class="text-center text-slate-400 max-w-3xl mx-auto mb-10">
-                These are some of the projects that I have done throughout my Computer Science course. Showcasing selected GitHub repositories with descriptions, technologies, and snapshots.
+      <div class="mt-16 grid gap-12 lg:grid-cols-12">
+        <div class="reveal space-y-6 text-lg leading-relaxed text-brand-slate lg:col-span-7">
+          <p>
+            I build secure, scalable applications and resilient network architectures. As a Computer Science Honours
+            graduate and ISC2-certified cybersecurity professional, I combine an academic programming foundation with
+            industry-recognised cybersecurity training in threat analysis, systems protection and responsive full-stack
+            engineering.
+          </p>
+          <p>
+            I'm passionate about technical problem-solving, learning emerging architectures and contributing to secure,
+            user-friendly solutions. I value writing clean, reliable code and collaborating in growth-oriented,
+            engineering-focused teams.
+          </p>
+          <blockquote class="panel mt-10 border-l-4 border-l-gray-300 p-6 pl-8 text-brand-charcoal shadow-sm">
+            <p class="text-[11px] font-bold uppercase tracking-widest text-gray-500">Professional statement</p>
+            <p class="mt-4 text-lg font-medium leading-relaxed italic">
+              "I am developing strong skills in cybersecurity analysis, threat detection and secure systems design.
+              I value protecting users and organisations by ensuring infrastructures remain secure, compliant and
+              resilient — applying my technical background, analytical mindset and commitment to continuous learning
+              to help organisations strengthen their security posture and respond proactively to modern threats."
             </p>
-            <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Populated dynamically -->
-            </div>
-            <div id="projectsError" class="text-center text-red-400 mt-6 hidden"></div>
+          </blockquote>
         </div>
+
+        <div class="lg:col-span-5">
+          <div class="grid gap-5">
+            <div class="reveal panel panel-hover p-6">
+              <div class="flex items-center gap-4">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-50 border border-cyan-100 text-cyan-600">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </span>
+                <h3 class="text-base font-bold text-brand-black">Secure by design</h3>
+              </div>
+              <p class="mt-4 text-sm leading-relaxed text-brand-slate">Threat-aware engineering: access control, secure configuration and resilient system design from the first commit.</p>
+            </div>
+
+            <div class="reveal panel panel-hover p-6" style="transition-delay:.06s">
+              <div class="flex items-center gap-4">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-50 border border-cyan-100 text-cyan-600">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                </span>
+                <h3 class="text-base font-bold text-brand-black">Systems &amp; networks</h3>
+              </div>
+              <p class="mt-4 text-sm leading-relaxed text-brand-slate">Hands-on with Cisco Packet Tracer and CLI: IPv4/IPv6 addressing, switching, routing and network troubleshooting.</p>
+            </div>
+
+            <div class="reveal panel panel-hover p-6" style="transition-delay:.12s">
+              <div class="flex items-center gap-4">
+                <span class="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-50 border border-cyan-100 text-cyan-600">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                </span>
+                <h3 class="text-base font-bold text-brand-black">Always learning</h3>
+              </div>
+              <p class="mt-4 text-sm leading-relaxed text-brand-slate">Certified, professional, detail-oriented and punctual — with a track record of self-driven academy coursework since 2022.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-24 bg-slate-950 border-b border-slate-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-4 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Skills & Expertise</h2>
-            <p class="text-center text-slate-400 max-w-3xl mx-auto mb-12">A focused overview of the technical and professional skills I use to build reliable software and support secure systems.</p>
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="scroll-mt-36 pt-32">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="reveal text-[11px] font-bold uppercase tracking-widest text-gray-400">02 — Capabilities</p>
+        <h2 class="reveal mt-4 text-4xl font-extrabold tracking-tight text-brand-black sm:text-5xl">Skills &amp; expertise</h2>
+        <p class="reveal mt-6 text-lg leading-relaxed text-brand-slate">The technical and professional toolkit I use to build reliable software and support secure systems.</p>
+      </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Core Competencies -->
-                <div class="cyber-card p-6 rounded-xl">
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-lg bg-cyan-950/30 text-cyan-400 flex items-center justify-center border border-cyan-800/30">
-                            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-lg font-bold text-white mb-3">Core Competencies</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Software Engineering</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Web Design & Programming</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Database Programming</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Human Computer Interaction</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Problem Solving</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Programming -->
-                <div class="cyber-card p-6 rounded-xl">
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-lg bg-cyan-950/30 text-cyan-400 flex items-center justify-center border border-cyan-800/30">
-                            <i class="fa-solid fa-code" aria-hidden="true"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-lg font-bold text-white mb-3">Programming</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">C#</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Python</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Java</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">JavaScript</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Web & Mobile -->
-                <div class="cyber-card p-6 rounded-xl">
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-lg bg-cyan-950/30 text-cyan-400 flex items-center justify-center border border-cyan-800/30">
-                            <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-lg font-bold text-white mb-3">Web & Mobile</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">HTML</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">CSS</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Tailwind</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Flutter</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">React Native</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Security & Networking -->
-                <div class="cyber-card p-6 rounded-xl">
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-lg bg-cyan-950/30 text-cyan-400 flex items-center justify-center border border-cyan-800/30">
-                            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-lg font-bold text-white mb-3">Security & Networking</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Computer Networks</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Network System Security</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Windows</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Ubuntu</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Cisco Packet Tracer</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Data & AI -->
-                <div class="cyber-card p-6 rounded-xl">
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-lg bg-cyan-950/30 text-cyan-400 flex items-center justify-center border border-cyan-800/30">
-                            <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-lg font-bold text-white mb-3">Data & AI</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Artificial Intelligence</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Data Warehousing & Mining</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">WEKA</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Google Colab</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tools -->
-                <div class="cyber-card p-6 rounded-xl">
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-lg bg-cyan-950/30 text-cyan-400 flex items-center justify-center border border-cyan-800/30">
-                            <i class="fa-solid fa-toolbox" aria-hidden="true"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-lg font-bold text-white mb-3">Tools</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Visual Studio Code</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">GitHub</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Microsoft Office</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Visio</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Installation & Troubleshooting</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Professional Attributes -->
-                <div class="cyber-card p-6 rounded-xl md:col-span-2 lg:col-span-3">
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-lg bg-cyan-950/30 text-cyan-400 flex items-center justify-center border border-cyan-800/30">
-                            <i class="fa-solid fa-user-check" aria-hidden="true"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-lg font-bold text-white mb-3">Professional Attributes</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Professional</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Detail Oriented</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Punctual</span>
-                                <span class="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1 text-xs text-slate-300 hover:border-slate-700 transition">Always Willing to Learn</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="reveal panel panel-hover p-7">
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Core competencies</h3>
+          <ul class="mt-5 flex flex-wrap gap-2.5">
+            <li class="chip">Software Engineering</li>
+            <li class="chip">Web Design &amp; Programming</li>
+            <li class="chip">Database Programming</li>
+            <li class="chip">Human–Computer Interaction</li>
+            <li class="chip">Problem Solving</li>
+          </ul>
         </div>
+
+        <div class="reveal panel panel-hover p-7" style="transition-delay:.05s">
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Programming</h3>
+          <ul class="mt-5 flex flex-wrap gap-2.5">
+            <li class="chip chip-strong">C#</li>
+            <li class="chip chip-strong">Python</li>
+            <li class="chip chip-strong">Java</li>
+            <li class="chip chip-strong">JavaScript</li>
+          </ul>
+          <p class="mt-5 text-xs font-medium leading-relaxed text-gray-500">Object-oriented fundamentals, scripting and application logic across coursework and personal projects.</p>
+        </div>
+
+        <div class="reveal panel panel-hover p-7" style="transition-delay:.1s">
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Web &amp; mobile</h3>
+          <ul class="mt-5 flex flex-wrap gap-2.5">
+            <li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">Tailwind</li>
+            <li class="chip">Flutter</li><li class="chip">React Native</li>
+          </ul>
+        </div>
+
+        <div class="reveal panel panel-hover p-7" style="transition-delay:.15s">
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Security &amp; networking</h3>
+          <ul class="mt-5 flex flex-wrap gap-2.5">
+            <li class="chip chip-strong">Computer Networks</li>
+            <li class="chip chip-strong">Network System Security</li>
+            <li class="chip chip-strong">Windows</li>
+            <li class="chip chip-strong">Ubuntu</li>
+            <li class="chip chip-strong">Cisco Packet Tracer</li>
+          </ul>
+        </div>
+
+        <div class="reveal panel panel-hover p-7" style="transition-delay:.2s">
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Data &amp; AI</h3>
+          <ul class="mt-5 flex flex-wrap gap-2.5">
+            <li class="chip">Artificial Intelligence</li>
+            <li class="chip">Data Warehousing &amp; Mining</li>
+            <li class="chip">WEKA</li>
+            <li class="chip">Google Colab</li>
+          </ul>
+        </div>
+
+        <div class="reveal panel panel-hover p-7" style="transition-delay:.25s">
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Tools &amp; workflow</h3>
+          <ul class="mt-5 flex flex-wrap gap-2.5">
+            <li class="chip">VS Code</li><li class="chip">GitHub</li><li class="chip">Microsoft Office</li>
+            <li class="chip">Visio</li><li class="chip">Installation &amp; Troubleshooting</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="reveal panel mt-5 flex flex-wrap items-center gap-x-10 gap-y-5 p-7">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Professional attributes</span>
+        <ul class="flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-brand-charcoal">
+          <li class="flex items-center gap-2.5"><span class="h-2 w-2 rounded-full bg-black"></span>Professional</li>
+          <li class="flex items-center gap-2.5"><span class="h-2 w-2 rounded-full bg-black"></span>Detail oriented</li>
+          <li class="flex items-center gap-2.5"><span class="h-2 w-2 rounded-full bg-black"></span>Punctual</li>
+          <li class="flex items-center gap-2.5"><span class="h-2 w-2 rounded-full bg-black"></span>Always willing to learn</li>
+        </ul>
+      </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="py-24 border-b border-slate-900 bg-slate-950/30">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Education</h2>
-            <div class="max-w-3xl mx-auto">
-                <div class="cyber-card p-8 rounded-xl relative overflow-hidden">
-                    <!-- Subtle background decoration -->
-                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-cyan-500/5 rounded-full blur-2xl"></div>
-                    
-                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-cyan-950/30 text-cyan-400 flex items-center justify-center border border-cyan-800/30 shrink-0">
-                                <i class="fas fa-graduation-cap text-lg"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold text-white">Bachelor of Science in Computer Science</h3>
-                                <p class="text-cyan-400 font-semibold mt-1">University of Namibia</p>
-                                <p class="text-slate-500 text-sm mt-0.5">Windhoek, Khomas &bull; Graduated: 2026</p>
-                            </div>
-                        </div>
-                        <span class="inline-flex self-start md:self-center border border-emerald-950/20 bg-emerald-950/25 text-emerald-450 text-emerald-400 text-xs font-semibold px-3 py-1 rounded-full">Honours Degree</span>
-                    </div>
-                    
-                    <div class="border-t border-slate-800/50 mt-6 pt-6">
-                        <h4 class="text-sm font-semibold text-slate-300 mb-3">Key Focus & Coursework:</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="inline-block border border-slate-850 bg-slate-900/40 text-slate-300 text-xs px-2.5 py-1 rounded-md">Software Engineering</span>
-                            <span class="inline-block border border-slate-850 bg-slate-900/40 text-slate-300 text-xs px-2.5 py-1 rounded-md">Network Systems Security</span>
-                            <span class="inline-block border border-slate-850 bg-slate-900/40 text-slate-300 text-xs px-2.5 py-1 rounded-md">System Administration</span>
-                            <span class="inline-block border border-slate-850 bg-slate-900/40 text-slate-300 text-xs px-2.5 py-1 rounded-md">Database Programming</span>
-                            <span class="inline-block border border-slate-850 bg-slate-900/40 text-slate-300 text-xs px-2.5 py-1 rounded-md">Artificial Intelligence</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="scroll-mt-36 pt-32">
+      <div class="flex flex-col items-center justify-center gap-8 text-center">
+        <div class="max-w-2xl">
+          <p class="reveal text-[11px] font-bold uppercase tracking-widest text-gray-400">03 — Selected work</p>
+          <h2 class="reveal mt-4 text-4xl font-extrabold tracking-tight text-brand-black sm:text-5xl">Projects</h2>
+          <p class="reveal mt-6 text-lg leading-relaxed text-brand-slate">
+            Built through my Computer Science course and personal exploration — drawn from my public GitHub repositories.
+          </p>
         </div>
+        <div class="reveal flex flex-wrap justify-center gap-2.5" role="tablist" aria-label="Filter projects">
+          <button type="button" class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button type="button" class="filter-btn" data-filter="security" role="tab" aria-selected="false">Security &amp; payments</button>
+          <button type="button" class="filter-btn" data-filter="ai" role="tab" aria-selected="false">AI &amp; data</button>
+          <button type="button" class="filter-btn" data-filter="systems" role="tab" aria-selected="false">Systems &amp; web</button>
+        </div>
+      </div>
+
+      <div id="projectGrid" class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <!-- QR_Pay -->
+        <article class="project panel panel-hover group flex flex-col pt-0" data-cat="security">
+          <img src="resources/QR/QR.webp" alt="QR Pay App" loading="lazy" class="w-full h-48 object-cover rounded-t-2xl border-b border-gray-200" />
+          <div class="p-7 flex flex-col flex-1">
+            <div class="flex items-start justify-between gap-4">
+              <span class="text-[11px] font-bold text-gray-400">01</span>
+              <span class="rounded-lg border border-gray-200 bg-brand-light px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-brand-charcoal">Security · Payments</span>
+            </div>
+            <h3 class="mt-6 text-xl font-bold text-brand-black">QR_Pay</h3>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-brand-slate">
+              A secure, cross-platform mobile payment prototype using dynamic QR codes for seamless cross-bank,
+              peer-to-peer transactions — designed to reduce cash dependency.
+            </p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="chip">JavaScript</li><li class="chip">Cross-platform</li><li class="chip">Payments</li>
+            </ul>
+            <a href="https://github.com/ANShishiveni/QR_Pay" target="_blank" rel="noopener noreferrer"
+               class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-black transition hover:text-gray-600">
+              View repository
+              <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- NLP Quiz Generator -->
+        <article class="project panel panel-hover group flex flex-col pt-0" data-cat="ai">
+          <img src="resources/NLP/NLP.webp" alt="NLP Quiz Generator" loading="lazy" class="w-full h-48 object-cover rounded-t-2xl border-b border-gray-200 object-top" />
+          <div class="p-7 flex flex-col flex-1">
+            <div class="flex items-start justify-between gap-4">
+              <span class="text-[11px] font-bold text-gray-400">02</span>
+              <span class="rounded-lg border border-gray-200 bg-brand-light px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-brand-charcoal">AI · NLP</span>
+            </div>
+            <h3 class="mt-6 text-xl font-bold text-brand-black">NLP Quiz Generator</h3>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-brand-slate">
+              An AI-powered quiz generator that creates quizzes from text, topics or uploaded documents. Supports multiple
+              question types (MCQ, true/false, fill-in-the-blank, math), difficulty levels, semantic validation and a
+              monitoring dashboard.
+            </p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="chip">Python</li><li class="chip">NLP</li><li class="chip">Dashboard</li>
+            </ul>
+            <a href="https://github.com/ANShishiveni/NLP_Quiz_Generator" target="_blank" rel="noopener noreferrer"
+               class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-black transition hover:text-gray-600">
+              View repository
+              <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Hospital app -->
+        <article class="project panel panel-hover group flex flex-col pt-0" data-cat="systems">
+          <img src="resources/HMS/HMS.webp" alt="Hospital Management System" loading="lazy" class="w-full h-48 object-cover rounded-t-2xl border-b border-gray-200 object-top" />
+          <div class="p-7 flex flex-col flex-1">
+            <div class="flex items-start justify-between gap-4">
+              <span class="text-[11px] font-bold text-gray-400">03</span>
+              <span class="rounded-lg border border-gray-200 bg-brand-light px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-brand-charcoal">Systems · Data</span>
+            </div>
+            <h3 class="mt-6 text-xl font-bold text-brand-black">Hospital Management System</h3>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-brand-slate">
+              An enhanced hospital management application covering patient records and day-to-day administrative
+              workflows — built around structured data handling and reliable CRUD operations.
+            </p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="chip">Database</li><li class="chip">Records</li><li class="chip">Desktop app</li>
+            </ul>
+            <a href="https://github.com/ANShishiveni/hospital_app" target="_blank" rel="noopener noreferrer"
+               class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-black transition hover:text-gray-600">
+              View repository
+              <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Hotel booking -->
+        <article class="project panel panel-hover group flex flex-col pt-0" data-cat="systems">
+          <img src="resources/HBS/HBS.webp" alt="Hotel Booking System" loading="lazy" class="w-full h-48 object-cover rounded-t-2xl border-b border-gray-200 object-top" />
+          <div class="p-7 flex flex-col flex-1">
+            <div class="flex items-start justify-between gap-4">
+              <span class="text-[11px] font-bold text-gray-400">04</span>
+              <span class="rounded-lg border border-gray-200 bg-brand-light px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-brand-charcoal">Web · Booking</span>
+            </div>
+            <h3 class="mt-6 text-xl font-bold text-brand-black">Hotel Booking System</h3>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-brand-slate">
+              A platform for booking rooms, managing reservations and processing payments — focused on smooth
+              availability handling and a clear booking flow.
+            </p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="chip">Reservations</li><li class="chip">Payments</li><li class="chip">Web app</li>
+            </ul>
+            <a href="https://github.com/ANShishiveni/Hotel-Booking-System" target="_blank" rel="noopener noreferrer"
+               class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-black transition hover:text-gray-600">
+              View repository
+              <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Ace Tech -->
+        <article class="project panel panel-hover group flex flex-col pt-0" data-cat="systems">
+          <img src="resources/ACE/ACE.webp" alt="Ace-Tech Website" loading="lazy" class="w-full h-48 object-cover rounded-t-2xl border-b border-gray-200 object-top" />
+          <div class="p-7 flex flex-col flex-1">
+            <div class="flex items-start justify-between gap-4">
+              <span class="text-[11px] font-bold text-gray-400">05</span>
+              <span class="rounded-lg border border-gray-200 bg-brand-light px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-brand-charcoal">Front-end</span>
+            </div>
+            <h3 class="mt-6 text-xl font-bold text-brand-black">Ace-Tech Website</h3>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-brand-slate">
+              A responsive front-end website build for a technology brand — practising layout, component structure and
+              mobile-first styling.
+            </p>
+            <ul class="mt-6 flex flex-wrap gap-2">
+              <li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">Responsive</li>
+            </ul>
+            <a href="https://github.com/ANShishiveni/Ace-Tech-Website" target="_blank" rel="noopener noreferrer"
+               class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-black transition hover:text-gray-600">
+              View repository
+              <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- CTA card -->
+        <article class="project reveal flex flex-col justify-between rounded-2xl border-2 border-dashed border-gray-200 bg-brand-light p-7 group" data-cat="all">
+          <div>
+            <h3 class="text-xl font-bold text-brand-black">More on GitHub</h3>
+            <p class="mt-4 text-sm leading-relaxed text-brand-slate">
+              All repositories are public — including the source of this portfolio site. Pull requests, issues and
+              feedback are welcome.
+            </p>
+          </div>
+          <a href="https://github.com/ANShishiveni?tab=repositories" target="_blank" rel="noopener noreferrer"
+             class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-black transition hover:text-gray-600">
+            Browse all repositories
+            <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </a>
+        </article>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black text-slate-100 border-b border-slate-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Get In Touch</h2>
-            <div class="max-w-5xl mx-auto">
-                <p class="text-center text-slate-400 mb-10">Prefer email — I usually reply within a day.</p>
+    <!-- ============ CREDENTIALS ============ -->
+    <section id="credentials" class="scroll-mt-36 pt-32">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="reveal text-[11px] font-bold uppercase tracking-widest text-gray-400">04 — Credentials</p>
+        <h2 class="reveal mt-4 text-4xl font-extrabold tracking-tight text-brand-black sm:text-5xl">Certifications &amp; education</h2>
+        <p class="reveal mt-6 text-lg leading-relaxed text-brand-slate">
+          Industry certifications from ISC2 and the Cisco Networking Academy, alongside my Honours degree. Expand any
+          entry for the full course outline.
+        </p>
+      </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Email -->
-                    <div class="cyber-card p-5 rounded-xl text-slate-100 flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-cyan-950/40 text-cyan-400 flex items-center justify-center mr-4 border border-cyan-800/20">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider">Email</div>
-                            <a href="mailto:anshishiveni@gmail.com" class="font-semibold hover:text-cyan-400 transition">anshishiveni@gmail.com</a>
-                        </div>
-                    </div>
-                    <!-- Phone -->
-                    <div class="cyber-card p-5 rounded-xl text-slate-100 flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-cyan-950/40 text-cyan-400 flex items-center justify-center mr-4 border border-cyan-800/20">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider">Phone</div>
-                            <a href="tel:+264816294914" class="font-semibold hover:text-cyan-400 transition">+264 81 629 4914</a>
-                        </div>
-                    </div>
-                    <!-- Location -->
-                    <div class="cyber-card p-5 rounded-xl text-slate-100 flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-cyan-950/40 text-cyan-400 flex items-center justify-center mr-4 border border-cyan-800/20">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <div class="text-xs text-slate-500 uppercase tracking-wider">Location</div>
-                            <div class="font-semibold text-slate-300">Windhoek, Namibia</div>
-                        </div>
-                    </div>
-                </div>
+      <div class="mt-14 grid gap-12 lg:grid-cols-12">
+        <!-- timeline -->
+        <div class="lg:col-span-8">
+          <ol class="relative space-y-6 border-l-2 border-gray-100 pl-6 sm:pl-10">
+            <li class="reveal relative">
+              <span class="absolute -left-[29px] top-7 grid h-4 w-4 place-items-center rounded-full bg-cyan-600 ring-8 ring-white sm:-left-[45px]"></span>
+              <details class="panel p-6" open>
+                <summary class="flex items-center justify-between gap-4">
+                  <span class="flex min-w-0 items-center gap-4">
+                    <img src="resources/certified-in-cybersecurity-cc.1.webp" alt="CC Badge" width="40" height="40" loading="lazy" class="h-10 w-10 shrink-0 object-contain rounded-md border border-gray-100" />
+                    <span class="min-w-0">
+                      <span class="block truncate text-lg font-bold text-brand-black">Certified in Cybersecurity (CC)</span>
+                      <span class="mt-1 block text-xs font-semibold uppercase tracking-widest text-gray-400">ISC2 · 2026–2029</span>
+                    </span>
+                  </span>
+                  <div class="flex items-center gap-3">
+                    <span class="hidden shrink-0 rounded-lg bg-cyan-600 px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-white sm:block">Certified</span>
+                    <svg viewBox="0 0 24 24" class="chev h-5 w-5 shrink-0 text-cyan-600" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                  </div>
+                </summary>
+                <p class="mt-5 pl-14 text-sm leading-relaxed text-brand-slate">
+                  The vendor-neutral CC credential starts newcomers on their path to advanced cybersecurity
+                  certifications and future leadership roles. It proves that newly certified team members understand
+                  fundamental security principles and operations, network security and access controls — and that they
+                  have the skills to meet and exceed performance standards in their beginning roles.
+                </p>
+              </details>
+            </li>
 
-                <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-                    <a href="mailto:anshishiveni@gmail.com" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 text-red-400 flex items-center justify-center hover:bg-red-950/30 hover:border-red-900 hover:scale-105 transition duration-300 shadow-lg" aria-label="Gmail">
-                        <i class="fa-solid fa-envelope text-xl"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/absalom-shishiveni-170b31216" target="_blank" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 text-cyan-400 flex items-center justify-center hover:bg-cyan-950/30 hover:border-cyan-900 hover:scale-105 transition duration-300 shadow-lg" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/ANShishiveni" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 text-slate-400 flex items-center justify-center hover:bg-slate-800 hover:text-white hover:scale-105 transition duration-300 shadow-lg" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </div>
+            <li class="reveal relative">
+              <span class="absolute -left-[29px] top-7 grid h-4 w-4 place-items-center rounded-full bg-gray-300 ring-8 ring-white sm:-left-[45px]"></span>
+              <details class="panel p-6">
+                <summary class="flex items-center justify-between gap-4">
+                  <span class="flex min-w-0 items-center gap-4">
+                    <img src="resources/learn-a-thon-2026.webp" alt="Cisco Badge" width="40" height="40" loading="lazy" class="h-10 w-10 shrink-0 object-contain rounded-md border border-gray-100" />
+                    <span class="min-w-0">
+                      <span class="block truncate text-lg font-bold text-brand-black">Cisco Learn-A-Thon 2026</span>
+                      <span class="mt-1 block text-xs font-semibold uppercase tracking-widest text-gray-400">Cisco Networking Academy · 2026</span>
+                    </span>
+                  </span>
+                  <svg viewBox="0 0 24 24" class="chev h-5 w-5 shrink-0 text-gray-400" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                </summary>
+                <ul class="mt-5 space-y-3 pl-14 text-sm leading-relaxed text-brand-slate">
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Participated in targeted academy Learn-A-Thon events</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Completed course tracks within specific campaign timeframes</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Recognised for active digital skills development and self-motivation</li>
+                </ul>
+              </details>
+            </li>
+
+            <li class="reveal relative">
+              <span class="absolute -left-[29px] top-7 grid h-4 w-4 place-items-center rounded-full bg-gray-300 ring-8 ring-white sm:-left-[45px]"></span>
+              <details class="panel p-6">
+                <summary class="flex items-center justify-between gap-4">
+                  <span class="flex min-w-0 items-center gap-4">
+                    <img src="resources/introduction-to-cybersecurity.webp" alt="Cisco Badge" width="40" height="40" loading="lazy" class="h-10 w-10 shrink-0 object-contain rounded-md border border-gray-100" />
+                    <span class="min-w-0">
+                      <span class="block truncate text-lg font-bold text-brand-black">Introduction to Cybersecurity</span>
+                      <span class="mt-1 block text-xs font-semibold uppercase tracking-widest text-gray-400">Cisco Networking Academy · 2026</span>
+                    </span>
+                  </span>
+                  <svg viewBox="0 0 24 24" class="chev h-5 w-5 shrink-0 text-gray-400" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                </summary>
+                <ul class="mt-5 space-y-3 pl-14 text-sm leading-relaxed text-brand-slate">
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Explain the basics of being safe online, what cybersecurity is and its impact</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Explain common cyber threats, attacks and vulnerabilities</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Explain how to protect oneself while online</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Explain how organisations protect operations against attacks</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Access resources to explore cybersecurity career options</li>
+                </ul>
+              </details>
+            </li>
+
+            <li class="reveal relative">
+              <span class="absolute -left-[29px] top-7 grid h-4 w-4 place-items-center rounded-full bg-cyan-600 ring-8 ring-white sm:-left-[45px]"></span>
+              <details class="panel p-6" open>
+                <summary class="flex items-center justify-between gap-4">
+                  <span class="flex min-w-0 items-center gap-4">
+                    <img src="resources/ccna-introduction-to-networks.png" alt="Cisco Badge" width="40" height="40" loading="lazy" class="h-10 w-10 shrink-0 object-contain rounded-md border border-gray-100" />
+                    <span class="min-w-0">
+                      <span class="block truncate text-lg font-bold text-brand-black">CCNA: Introduction to Networks</span>
+                      <span class="mt-1 block text-xs font-semibold uppercase tracking-widest text-gray-400">Cisco Networking Academy · 2026</span>
+                    </span>
+                  </span>
+                  <svg viewBox="0 0 24 24" class="chev h-5 w-5 shrink-0 text-cyan-600" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                </summary>
+                <ul class="mt-5 space-y-3 pl-14 text-sm leading-relaxed text-brand-slate">
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Configure switches and end devices to provide access to local and remote network resources</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Configure routers to enable end-to-end connectivity between remote devices</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Explain how physical and data link layers support Ethernet in switched networks</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Implement IPv4 and IPv6 addressing schemes and IP services</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Troubleshoot and verify connectivity using Cisco Packet Tracer and CLI</li>
+                </ul>
+              </details>
+            </li>
+
+            <li class="reveal relative">
+              <span class="absolute -left-[29px] top-7 grid h-4 w-4 place-items-center rounded-full bg-gray-300 ring-8 ring-white sm:-left-[45px]"></span>
+              <details class="panel p-6">
+                <summary class="flex items-center justify-between gap-4">
+                  <span class="flex min-w-0 items-center gap-4">
+                    <img src="resources/it-essentials.webp" alt="Cisco Badge" width="40" height="40" loading="lazy" class="h-10 w-10 shrink-0 object-contain rounded-md border border-gray-100" />
+                    <span class="min-w-0">
+                      <span class="block truncate text-lg font-bold text-brand-black">IT Essentials</span>
+                      <span class="mt-1 block text-xs font-semibold uppercase tracking-widest text-gray-400">Cisco Networking Academy · 2023</span>
+                    </span>
+                  </span>
+                  <svg viewBox="0 0 24 24" class="chev h-5 w-5 shrink-0 text-gray-400" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                </summary>
+                <ul class="mt-5 space-y-3 pl-14 text-sm leading-relaxed text-brand-slate">
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Selected, installed and configured computer components</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Installed and maintained Windows and Linux operating systems</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Implemented basic host, data and network security</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Gained knowledge in virtualisation and cloud computing</li>
+                </ul>
+              </details>
+            </li>
+
+            <li class="reveal relative">
+              <span class="absolute -left-[29px] top-7 grid h-4 w-4 place-items-center rounded-full bg-gray-300 ring-8 ring-white sm:-left-[45px]"></span>
+              <details class="panel p-6">
+                <summary class="flex items-center justify-between gap-4">
+                  <span class="flex min-w-0 items-center gap-4">
+                    <img src="resources/NetworkingEssentials.webp" alt="Cisco Badge" width="40" height="40" loading="lazy" class="h-10 w-10 shrink-0 object-contain rounded-md border border-gray-100" />
+                    <span class="min-w-0">
+                      <span class="block truncate text-lg font-bold text-brand-black">Networking Essentials</span>
+                      <span class="mt-1 block text-xs font-semibold uppercase tracking-widest text-gray-400">Cisco Networking Academy · 2022</span>
+                    </span>
+                  </span>
+                  <svg viewBox="0 0 24 24" class="chev h-5 w-5 shrink-0 text-gray-400" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                </summary>
+                <ul class="mt-5 space-y-3 pl-14 text-sm leading-relaxed text-brand-slate">
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Built and configured small networks using Cisco devices</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Explained IP addressing and TCP/IP protocols</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Configured wireless routers and secured wireless clients</li>
+                  <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black"></span>Troubleshot common network issues</li>
+                </ul>
+              </details>
+            </li>
+          </ol>
         </div>
+
+        <!-- education -->
+        <div class="lg:col-span-4">
+          <div class="reveal panel p-7">
+            <p class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Education</p>
+            <h3 class="mt-4 text-xl font-bold text-brand-black">BSc Computer Science (Honours)</h3>
+            <p class="mt-2 text-sm font-semibold text-brand-slate">University of Namibia</p>
+            <p class="mt-1 text-xs font-semibold uppercase tracking-widest text-gray-400">Windhoek, Khomas · Graduated 2026</p>
+            <div class="mt-6 border-t border-gray-200 pt-6">
+              <p class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Key focus &amp; coursework</p>
+              <ul class="mt-4 flex flex-wrap gap-2.5">
+                <li class="chip">Software Engineering</li>
+                <li class="chip">Network Systems Security</li>
+                <li class="chip">System Administration</li>
+                <li class="chip">Database Programming</li>
+                <li class="chip">Artificial Intelligence</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="reveal panel mt-5 overflow-hidden" style="transition-delay:.06s">
+            <div class="border-b border-gray-200 bg-gray-50 px-7 py-6">
+              <p class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">ISC2 Certified</p>
+              <p class="mt-2 text-xl font-bold text-brand-black">Certified in Cybersecurity (CC)</p>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-widest text-gray-400">Valid 2026 – 2029</p>
+            </div>
+            <div class="px-7 py-6">
+              <p class="text-sm leading-relaxed text-brand-slate font-medium">
+                Security principles and operations, network security and access controls — the vendor-neutral
+                foundation for advanced cybersecurity certification.
+              </p>
+              <p class="mt-5 text-[11px] font-bold uppercase tracking-widest text-gray-400">Also credentialed by Cisco.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-400 py-10">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <h3 class="text-2xl font-extrabold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">AN Shishiveni</h3>
-                    <p class="text-slate-500 text-sm">Computer Science Graduate</p>
-                </div>
-                <div class="flex flex-wrap gap-6 text-sm">
-                    <a href="#home" class="hover:text-cyan-400 transition">Home</a>
-                    <a href="#about" class="hover:text-cyan-400 transition">About</a>
-                    <a href="#certifications" class="hover:text-cyan-400 transition">Certifications</a>
-                    <a href="#projects" class="hover:text-cyan-400 transition">Projects</a>
-                    <a href="#skills" class="hover:text-cyan-400 transition">Skills</a>
-                    <a href="#education" class="hover:text-cyan-400 transition">Education</a>
-                    <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
-                </div>
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="scroll-mt-36 pt-32 pb-32">
+      <div class="reveal panel bg-gradient-to-br from-white to-gray-50 relative overflow-hidden p-8 sm:p-14">
+        <div class="relative grid gap-12 lg:grid-cols-12">
+          <div class="lg:col-span-7">
+            <p class="text-[11px] font-bold uppercase tracking-widest text-gray-400">05 — Contact</p>
+            <h2 class="mt-4 text-4xl font-extrabold tracking-tight text-brand-black sm:text-5xl">Let's talk security, systems or code.</h2>
+            <p class="mt-6 max-w-lg text-lg leading-relaxed text-brand-slate">
+              I'm open to graduate and junior roles in cybersecurity, secure software engineering and network systems —
+              and always happy to discuss a technical problem. Email is the fastest way to reach me; I usually reply
+              within a day.
+            </p>
+            <div class="mt-10 flex flex-wrap gap-4">
+              <a href="mailto:anshishiveni@gmail.com"
+                 class="magnetic-btn inline-flex items-center gap-2 rounded-xl bg-cyan-600 px-6 py-4 text-sm font-bold text-white hover:bg-cyan-700 hover:shadow-lg hover:shadow-black/10">
+                <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+                anshishiveni@gmail.com
+              </a>
+              <a href="https://github.com/ANShishiveni" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-6 py-4 text-sm font-bold text-brand-charcoal transition-all hover:border-black hover:bg-gray-50">
+                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.06-.72.08-.7.08-.7 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.4-1.27.73-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.05.78 2.13v3.16c0 .3.2.66.8.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+                github.com/ANShishiveni
+              </a>
             </div>
-            <div class="border-t border-slate-900 mt-8 pt-8 text-center text-slate-600 text-xs">
-                <p>&copy; <span id="current-year">2026</span> AN Shishiveni. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+          </div>
 
-    <script src="script.js?v=20260312"></script>
+          <div class="lg:col-span-5">
+            <dl class="space-y-4">
+              <div class="flex items-start gap-5 rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-50 border border-cyan-100 text-cyan-600">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <div>
+                  <dt class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Location</dt>
+                  <dd class="mt-1.5 text-sm font-bold text-brand-charcoal">Windhoek, Namibia <span class="text-gray-500 font-medium">(CAT / UTC+2)</span></dd>
+                </div>
+              </div>
+              <div class="flex items-start gap-5 rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-50 border border-cyan-100 text-cyan-600">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <div>
+                  <dt class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Phone</dt>
+                  <dd class="mt-1.5 text-sm font-bold text-brand-charcoal"><a href="tel:+264816294914" class="transition hover:text-gray-500">+264 81 629 4914</a></dd>
+                </div>
+              </div>
+              <div class="flex items-start gap-5 rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cyan-50 border border-cyan-100 text-cyan-600">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </span>
+                <div>
+                  <dt class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Website</dt>
+                  <dd class="mt-1.5 text-sm font-bold text-brand-charcoal"><a href="https://anshishiveni.github.io/" target="_blank" rel="noopener noreferrer" class="transition hover:text-gray-500">anshishiveni.github.io</a></dd>
+                </div>
+              </div>
+            </dl>
+            <button type="button" data-copy="anshishiveni@gmail.com"
+                    class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-gray-200 bg-brand-light px-5 py-4 text-sm font-bold text-brand-charcoal transition-all hover:border-black hover:bg-gray-100">
+              <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 5.5A2.5 2.5 0 0 0 12.5 3h-6A3.5 3.5 0 0 0 3 6.5v6A2.5 2.5 0 0 0 5.5 15"/></svg>
+              <span data-copy-label>Copy email address</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-gray-200 bg-white">
+    <div class="mx-auto flex max-w-8xl flex-col gap-6 px-5 py-12 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+      <div class="flex items-center gap-4">
+        <img src="resources/profile.webp" alt="Absalom" width="40" height="40" loading="lazy" class="h-10 w-10 object-cover rounded-full border border-gray-200" />
+        <div class="leading-tight">
+          <p class="text-sm font-bold text-brand-charcoal">Absalom Ndinomwene Shishiveni</p>
+          <p class="mt-1 text-[11px] font-bold uppercase tracking-widest text-gray-400">Cybersecurity · Secure software · Network systems</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-8 gap-y-3 text-[11px] font-bold uppercase tracking-widest text-gray-400">
+        <a href="mailto:anshishiveni@gmail.com" class="transition hover:text-black">Email</a>
+        <a href="https://github.com/ANShishiveni" target="_blank" rel="noopener noreferrer" class="transition hover:text-black">GitHub</a>
+        <span>© <span id="year">2026</span> — All rights reserved</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<button id="toTop" type="button" aria-label="Back to top"
+        class="fixed bottom-8 right-8 z-40 hidden h-12 w-12 place-items-center rounded-full border border-gray-200 bg-white text-brand-charcoal shadow-md transition-all hover:border-black hover:bg-gray-50 hover:shadow-lg hover:-translate-y-1">
+  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-6 6 6-6 6 6"/></svg>
+</button>
+
+<script>
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* year */
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+
+    /* reveal on scroll */
+    var revealables = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      revealables.forEach(function (el) { el.classList.add('is-visible'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+      revealables.forEach(function (el) { io.observe(el); });
+    }
+
+    /* mobile menu */
+    var menuBtn = document.getElementById('menuBtn');
+    var mobileMenu = document.getElementById('mobileMenu');
+    function closeMenu() {
+      mobileMenu.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', function () {
+        var open = mobileMenu.classList.toggle('hidden') === false;
+        menuBtn.setAttribute('aria-expanded', String(open));
+      });
+      mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+    }
+
+    /* header elevation + back to top */
+    var header = document.getElementById('siteHeader');
+    var toTop = document.getElementById('toTop');
+    function onScroll() {
+      var sc = window.scrollY;
+      if (header) header.style.paddingBottom = sc > 10 ? '0' : '';
+      if (toTop) {
+        if (sc > 600) { toTop.classList.remove('hidden'); toTop.classList.add('grid'); }
+        else { toTop.classList.add('hidden'); toTop.classList.remove('grid'); }
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    if (toTop) toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    });
+
+    /* active nav link */
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('[data-nav]'));
+    var sections = navLinks.map(function (l) { return document.querySelector(l.getAttribute('href')); }).filter(Boolean);
+    if (sections.length && 'IntersectionObserver' in window) {
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          navLinks.forEach(function (l) {
+            var active = l.getAttribute('href') === '#' + e.target.id;
+            l.classList.toggle('text-brand-charcoal', active);
+            l.classList.toggle('bg-gray-100', active);
+            l.classList.toggle('text-gray-500', !active);
+          });
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+      sections.forEach(function (s) { spy.observe(s); });
+    }
+
+    /* project filter */
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var projects = document.querySelectorAll('.project');
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var f = btn.getAttribute('data-filter');
+        filterBtns.forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-selected', String(on));
+        });
+        projects.forEach(function (card) {
+          var show = f === 'all' || card.getAttribute('data-cat') === f || card.getAttribute('data-cat') === 'all';
+          card.classList.toggle('is-hidden', !show);
+          if (show) card.classList.add('is-visible');
+        });
+      });
+    });
+
+    /* copy email */
+    document.querySelectorAll('[data-copy]').forEach(function (btn) {
+      var label = btn.querySelector('[data-copy-label]');
+      var original = label ? label.textContent : null;
+      btn.addEventListener('click', function () {
+        var text = btn.getAttribute('data-copy');
+        function done() {
+          if (!label) return;
+          label.textContent = 'Copied to clipboard';
+          window.setTimeout(function () { label.textContent = original; }, 2200);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () { label && (label.textContent = text); });
+        } else if (label) {
+          label.textContent = text;
+        }
+      });
+    });
+
+    /* Project Card Spotlight */
+    document.querySelectorAll('.project').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        card.style.setProperty('--x', x + 'px');
+        card.style.setProperty('--y', y + 'px');
+      });
+    });
+
+    /* Magnetic Buttons */
+    document.querySelectorAll('.magnetic-btn').forEach(function(btn) {
+      btn.addEventListener('mousemove', function(e) {
+        var rect = btn.getBoundingClientRect();
+        var h = rect.width / 2;
+        var v = rect.height / 2;
+        var x = e.clientX - rect.left - h;
+        var y = e.clientY - rect.top - v;
+        btn.style.transform = 'translate(' + (x * 0.15) + 'px, ' + (y * 0.15) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function() {
+        btn.style.transform = 'translate(0px, 0px)';
+      });
+    });
+
+  })();
+</script>
 </body>
 </html>
