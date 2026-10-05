@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Absalom Ndinomwene Shishiveni — Cybersecurity &amp; Software Engineer</title>
-<meta name="description" content="Computer Science Honours graduate and ISC2-certified cybersecurity professional based in Windhoek, Namibia. Secure software engineering, network systems defence and secure application development." />
+<title>Absalom Ndinomwene Shishiveni — Computer Science Honours Graduate</title>
+<meta name="description" content="Portfolio of Absalom Ndinomwene Shishiveni, a Computer Science Honours graduate from the University of Namibia and ISC2 Certified in Cybersecurity (CC), with hands-on software development, IT support, networking and cybersecurity skills." />
 <meta name="theme-color" content="#ffffff" />
-<meta property="og:title" content="Absalom Ndinomwene Shishiveni — Cybersecurity &amp; Software Engineer" />
-<meta property="og:description" content="Secure software engineering, network systems defence and secure application development. ISC2-certified, based in Windhoek, Namibia." />
+<meta property="og:title" content="Absalom Ndinomwene Shishiveni — Computer Science Honours Graduate" />
+<meta property="og:description" content="Software development, IT support, networking and cybersecurity portfolio. BSc Computer Science (Honours), University of Namibia · ISC2 CC." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://anshishiveni.github.io/" />
 <meta property="og:image" content="https://anshishiveni.github.io/resources/profile.png" />
@@ -39,94 +39,7 @@
     }
   }
 </script>
-<style>
-  html { -webkit-text-size-adjust: 100%; overflow-x: hidden; }
-  body { background-color: #FFFFFF; color: #555555; overflow-x: hidden; width: 100%; position: relative; }
-  ::selection { background: rgba(8, 145, 178, 0.2); color: #164e63; }
-
-  /* ---------- surfaces ---------- */
-  .panel {
-    background-color: #FFFFFF;
-    border: 1px solid #E5E7EB;
-    border-radius: 1rem;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
-  }
-  .panel-hover { transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s, box-shadow .35s; }
-  .panel-hover:hover {
-    transform: translateY(-4px);
-    border-color: #000000;
-    box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.08);
-  }
-
-  /* ---------- reveal on scroll ---------- */
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1); }
-  .reveal.is-visible { opacity: 1; transform: none; }
-
-  /* ---------- marquee ---------- */
-  .marquee-wrap { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-  .marquee { display: flex; width: max-content; gap: 2.75rem; animation: slide 42s linear infinite; }
-  .marquee-wrap:hover .marquee { animation-play-state: paused; }
-  @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-  details > summary { list-style: none; cursor: pointer; }
-  details > summary::-webkit-details-marker { display: none; }
-  details[open] .chev { transform: rotate(90deg); }
-  .chev { transition: transform .3s ease; }
-
-  :focus-visible { outline: 2px solid #0891B2; outline-offset: 3px; border-radius: .35rem; }
-  ::-webkit-scrollbar { width: 11px; height: 11px; }
-  ::-webkit-scrollbar-track { background: #F3F4F6; }
-  ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 99px; border: 3px solid #F3F4F6; }
-  ::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
-
-  .skip {
-    position: absolute; left: -9999px; top: .75rem; z-index: 100;
-    background: #111111; color: #FFFFFF; padding: .6rem 1rem; border-radius: .5rem; border: 1px solid #E5E7EB;
-  }
-  .skip:focus { left: .75rem; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .marquee { animation: none; }
-    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-    html { scroll-behavior: auto; }
-  }
-
-  /* Chip styles */
-  .chip { display:inline-block; border:1px solid #E5E7EB; background:#FFFFFF; color:#555555; font-size:.78rem; padding:.35rem .7rem; border-radius:.6rem; font-weight: 500; }
-
-  /* ---------- JS Animations ---------- */
-  .filter-btn { border:1px solid #E5E7EB; background:#FFFFFF; color:#6B7280; font-weight: 600; font-size:.85rem; padding:.55rem 1rem; border-radius:.75rem; transition:all 0.2s; }
-  .filter-btn:hover { color:#111827; border-color:#1f2937; }
-  .filter-btn.is-active { background:#1f2937; border-color:#1f2937; color:#FFFFFF; }
-  .project.is-hidden { display:none !important; }
-
-  .project { position: relative; overflow: hidden; }
-  .project::before {
-    content: ""; position: absolute; inset: 0; border-radius: inherit;
-    opacity: 0; transition: opacity 0.3s ease;
-    background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(8, 145, 178, 0.08), transparent 40%);
-    pointer-events: none; z-index: 0;
-  }
-  .project:hover::before { opacity: 1; }
-  .project > * { position: relative; z-index: 1; }
-  
-  .magnetic-btn {
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, box-shadow 0.2s;
-    will-change: transform;
-  }
-  .magnetic-btn:hover {
-    transition: transform 0.1s linear, background-color 0.2s, box-shadow 0.2s;
-  }
-  
-  @keyframes slideUpFade {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-  .stagger-1 { animation: slideUpFade 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s forwards; opacity: 0; display: inline-block; }
-  .stagger-2 { animation: slideUpFade 0.9s cubic-bezier(0.16,1,0.3,1) 0.25s forwards; opacity: 0; display: inline-block; }
-  .stagger-3 { animation: slideUpFade 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s forwards; opacity: 0; display: inline-block; }
-
-</style>
+<link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
 
@@ -143,7 +56,7 @@
           <img src="resources/profile.webp" alt="Absalom" width="40" height="40" class="h-10 w-10 object-cover rounded-full border border-gray-200 transition-transform group-hover:scale-105" />
           <span class="hidden leading-tight sm:block">
             <span class="block text-[15px] font-bold tracking-tight text-brand-charcoal">Absalom Shishiveni</span>
-            <span class="block text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400 mt-0.5">Security · Systems</span>
+            <span class="block text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400 mt-0.5">Software · IT · Security</span>
           </span>
         </a>
 
@@ -163,7 +76,7 @@
           </a>
           <a href="mailto:anshishiveni@gmail.com"
              class="magnetic-btn hidden rounded-xl bg-cyan-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-cyan-700 md:inline-block">
-            Hire me
+            Open to opportunities
           </a>
           <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"
                   class="grid h-10 w-10 place-items-center rounded-xl border border-gray-200 text-brand-charcoal transition hover:border-black lg:hidden">
@@ -206,14 +119,14 @@
         </h1>
 
         <p class="reveal mt-6 text-sm font-bold uppercase tracking-widest text-gray-500" style="transition-delay:.1s">
-          Security-first software engineer · network systems defence
+          Software development · IT support · networking · cybersecurity
         </p>
 
         <p class="reveal mt-6 max-w-xl text-lg leading-relaxed text-brand-slate" style="transition-delay:.15s">
-          Computer Science <strong class="font-semibold text-brand-black">Honours graduate</strong> and
-          <strong class="font-semibold text-brand-black">ISC2-certified</strong> cybersecurity professional. I build secure, scalable
-          applications and resilient network architectures — combining an academic programming foundation with
-          industry-recognised training in threat analysis and systems protection.
+          Computer Science <strong class="font-semibold text-brand-black">Honours graduate</strong> from the University of Namibia and
+          <strong class="font-semibold text-brand-black">ISC2 Certified in Cybersecurity (CC)</strong>. I build practical mobile and web
+          applications, work with networking technologies, and troubleshoot computer systems — combining hands-on development
+          experience with a growing foundation in cybersecurity.
         </p>
 
         <div class="reveal mt-10 flex flex-wrap items-center gap-4" style="transition-delay:.2s">
@@ -242,12 +155,12 @@
             <dd class="mt-2 text-sm font-bold text-brand-charcoal">BSc CS Honours · 2026</dd>
           </div>
           <div>
-            <dt class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Certifications</dt>
-            <dd class="mt-2 text-sm font-bold text-brand-charcoal">ISC2 CC + Cisco tracks</dd>
+            <dt class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Credentials</dt>
+            <dd class="mt-2 text-sm font-bold text-brand-charcoal">ISC2 CC · Cisco training</dd>
           </div>
           <div>
-            <dt class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Repositories</dt>
-            <dd class="mt-2 text-sm font-bold text-brand-charcoal">6 public on GitHub</dd>
+            <dt class="text-[10px] font-bold uppercase tracking-widest text-gray-400">GitHub</dt>
+            <dd class="mt-2 text-sm font-bold text-brand-charcoal">Public projects &amp; source</dd>
           </div>
         </dl>
       </div>
@@ -265,9 +178,9 @@
 <span class="text-cyan-600 font-semibold">absalom.ndinomwene.shishiveni</span>
 
 <span class="text-gray-400 font-bold">$</span> <span class="text-brand-charcoal font-bold">cat focus.txt</span>
-<span class="text-brand-slate font-medium">secure software engineering
-network systems defence
-secure application development</span>
+<span class="text-brand-slate font-medium">software &amp; mobile development
+IT support &amp; troubleshooting
+networking &amp; cybersecurity fundamentals</span>
 
 <span class="text-gray-400 font-bold">$</span> <span class="text-brand-charcoal font-bold">./verify --credentials</span>
 <span class="text-emerald-600 font-bold">[ ok ]</span> <span class="text-brand-slate font-medium">ISC2 Certified in Cybersecurity (CC)</span>
@@ -276,7 +189,7 @@ secure application development</span>
 <span class="text-emerald-600 font-bold">[ ok ]</span> <span class="text-brand-slate font-medium">BSc Computer Science (Honours), UNAM</span>
 
 <span class="text-gray-400 font-bold">$</span> <span class="text-brand-charcoal font-bold">status</span>
-<span class="text-amber-600 font-bold">→ open to graduate &amp; junior cybersecurity roles</span>
+<span class="text-amber-600 font-bold">→ open to graduate &amp; junior technology roles</span>
 <span class="text-gray-400 font-bold">$</span> <span class="inline-block h-3.5 w-2 bg-cyan-600 animate-pulse align-middle"></span></code></pre>
         </div>
       </div>
@@ -332,31 +245,21 @@ secure application development</span>
     <section id="about" class="scroll-mt-36 pt-24">
       <div class="max-w-2xl mx-auto text-center">
         <p class="reveal text-[11px] font-bold uppercase tracking-widest text-gray-400">01 — About</p>
-        <h2 class="reveal mt-4 text-4xl font-extrabold tracking-tight text-brand-black sm:text-5xl">Security is a design constraint, not an afterthought.</h2>
+        <h2 class="reveal mt-4 text-4xl font-extrabold tracking-tight text-brand-black sm:text-5xl">Building practical technology with security in mind.</h2>
       </div>
 
       <div class="mt-16 grid gap-12 lg:grid-cols-12">
         <div class="reveal space-y-6 text-lg leading-relaxed text-brand-slate lg:col-span-7">
           <p>
-            I build secure, scalable applications and resilient network architectures. As a Computer Science Honours
-            graduate and ISC2-certified cybersecurity professional, I combine an academic programming foundation with
-            industry-recognised cybersecurity training in threat analysis, systems protection and responsive full-stack
-            engineering.
+            I am a Computer Science Honours graduate from the University of Namibia with hands-on experience developing
+            mobile and web applications, working with databases and networking technologies, and troubleshooting computer
+            systems. My strongest work combines software development with practical security considerations.
           </p>
           <p>
-            I'm passionate about technical problem-solving, learning emerging architectures and contributing to secure,
-            user-friendly solutions. I value writing clean, reliable code and collaborating in growth-oriented,
-            engineering-focused teams.
+            My Honours research focused on designing and evaluating a QR-code-based mobile payment prototype for reducing
+            cash dependency in Namibia. I am especially interested in graduate and junior roles where I can contribute,
+            keep learning, and grow across software development, IT support, networking and cybersecurity.
           </p>
-          <blockquote class="panel mt-10 border-l-4 border-l-gray-300 p-6 pl-8 text-brand-charcoal shadow-sm">
-            <p class="text-[11px] font-bold uppercase tracking-widest text-gray-500">Professional statement</p>
-            <p class="mt-4 text-lg font-medium leading-relaxed italic">
-              "I am developing strong skills in cybersecurity analysis, threat detection and secure systems design.
-              I value protecting users and organisations by ensuring infrastructures remain secure, compliant and
-              resilient — applying my technical background, analytical mindset and commitment to continuous learning
-              to help organisations strengthen their security posture and respond proactively to modern threats."
-            </p>
-          </blockquote>
         </div>
 
         <div class="lg:col-span-5">
@@ -368,7 +271,7 @@ secure application development</span>
                 </span>
                 <h3 class="text-base font-bold text-brand-black">Secure by design</h3>
               </div>
-              <p class="mt-4 text-sm leading-relaxed text-brand-slate">Threat-aware engineering: access control, secure configuration and resilient system design from the first commit.</p>
+              <p class="mt-4 text-sm leading-relaxed text-brand-slate">I apply authentication, access-control and secure-configuration principles where they are relevant to the systems I build.</p>
             </div>
 
             <div class="reveal panel panel-hover p-6" style="transition-delay:.06s">
@@ -376,7 +279,7 @@ secure application development</span>
                 <span class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 border border-gray-200 text-gray-500">
                   <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
                 </span>
-                <h3 class="text-base font-bold text-brand-black">Systems &amp; networks</h3>
+                <h3 class="text-base font-bold text-brand-black">Networking fundamentals</h3>
               </div>
               <p class="mt-4 text-sm leading-relaxed text-brand-slate">Hands-on with Cisco Packet Tracer and CLI: IPv4/IPv6 addressing, switching, routing and network troubleshooting.</p>
             </div>
@@ -386,9 +289,9 @@ secure application development</span>
                 <span class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 border border-gray-200 text-gray-500">
                   <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
                 </span>
-                <h3 class="text-base font-bold text-brand-black">Always learning</h3>
+                <h3 class="text-base font-bold text-brand-black">IT support &amp; troubleshooting</h3>
               </div>
-              <p class="mt-4 text-sm leading-relaxed text-brand-slate">Certified, professional, detail-oriented and punctual — with a track record of self-driven academy coursework since 2022.</p>
+              <p class="mt-4 text-sm leading-relaxed text-brand-slate">Practical experience with Windows and Ubuntu, software installation, device setup and structured troubleshooting.</p>
             </div>
           </div>
         </div>
@@ -400,78 +303,56 @@ secure application development</span>
       <div class="max-w-2xl mx-auto text-center">
         <p class="reveal text-[11px] font-bold uppercase tracking-widest text-gray-400">02 — Capabilities</p>
         <h2 class="reveal mt-4 text-4xl font-extrabold tracking-tight text-brand-black sm:text-5xl">Skills &amp; expertise</h2>
-        <p class="reveal mt-6 text-lg leading-relaxed text-brand-slate">The technical and professional toolkit I use to build reliable software and support secure systems.</p>
+        <p class="reveal mt-6 text-lg leading-relaxed text-brand-slate">A focused view of the technologies and practical capabilities I have used across coursework, projects and technical training.</p>
       </div>
 
       <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <div class="reveal panel panel-hover p-7">
-          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Core competencies</h3>
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Programming</h3>
           <ul class="mt-5 flex flex-wrap gap-2.5">
-            <li class="chip">Software Engineering</li>
-            <li class="chip">Web Design &amp; Programming</li>
-            <li class="chip">Database Programming</li>
-            <li class="chip">Human–Computer Interaction</li>
-            <li class="chip">Problem Solving</li>
+            <li class="chip">Python</li><li class="chip">JavaScript</li><li class="chip">C#</li><li class="chip">Java</li>
           </ul>
         </div>
 
         <div class="reveal panel panel-hover p-7" style="transition-delay:.05s">
-          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Programming</h3>
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Web &amp; mobile</h3>
           <ul class="mt-5 flex flex-wrap gap-2.5">
-            <li class="chip chip-strong">C#</li>
-            <li class="chip chip-strong">Python</li>
-            <li class="chip chip-strong">Java</li>
-            <li class="chip chip-strong">JavaScript</li>
+            <li class="chip">React Native</li><li class="chip">Expo</li><li class="chip">Flask</li>
+            <li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">Bootstrap</li><li class="chip">Tailwind CSS</li>
           </ul>
-          <p class="mt-5 text-xs font-medium leading-relaxed text-gray-500">Object-oriented fundamentals, scripting and application logic across coursework and personal projects.</p>
         </div>
 
         <div class="reveal panel panel-hover p-7" style="transition-delay:.1s">
-          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Web &amp; mobile</h3>
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Databases &amp; backend</h3>
           <ul class="mt-5 flex flex-wrap gap-2.5">
-            <li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">Tailwind</li>
-            <li class="chip">Flutter</li><li class="chip">React Native</li>
+            <li class="chip">Firebase</li><li class="chip">SQL</li><li class="chip">SQLite</li>
+            <li class="chip">SQLAlchemy</li><li class="chip">MySQL / MariaDB</li><li class="chip">Node.js / Express</li>
           </ul>
         </div>
 
         <div class="reveal panel panel-hover p-7" style="transition-delay:.15s">
-          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Security &amp; networking</h3>
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Networking</h3>
           <ul class="mt-5 flex flex-wrap gap-2.5">
-            <li class="chip chip-strong">Computer Networks</li>
-            <li class="chip chip-strong">Network System Security</li>
-            <li class="chip chip-strong">Windows</li>
-            <li class="chip chip-strong">Ubuntu</li>
-            <li class="chip chip-strong">Cisco Packet Tracer</li>
+            <li class="chip">TCP/IP</li><li class="chip">IPv4 / IPv6</li><li class="chip">Routing</li>
+            <li class="chip">Switching</li><li class="chip">LAN / Wi-Fi</li><li class="chip">Cisco Packet Tracer</li>
           </ul>
         </div>
 
         <div class="reveal panel panel-hover p-7" style="transition-delay:.2s">
-          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Data &amp; AI</h3>
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">IT &amp; systems</h3>
           <ul class="mt-5 flex flex-wrap gap-2.5">
-            <li class="chip">Artificial Intelligence</li>
-            <li class="chip">Data Warehousing &amp; Mining</li>
-            <li class="chip">WEKA</li>
-            <li class="chip">Google Colab</li>
+            <li class="chip">Windows</li><li class="chip">Ubuntu Linux</li><li class="chip">Software installation</li>
+            <li class="chip">Device setup</li><li class="chip">Hardware troubleshooting</li><li class="chip">System troubleshooting</li>
           </ul>
         </div>
 
         <div class="reveal panel panel-hover p-7" style="transition-delay:.25s">
-          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Tools &amp; workflow</h3>
+          <h3 class="text-[11px] font-bold uppercase tracking-widest text-brand-charcoal">Security &amp; workflow</h3>
           <ul class="mt-5 flex flex-wrap gap-2.5">
-            <li class="chip">VS Code</li><li class="chip">GitHub</li><li class="chip">Microsoft Office</li>
-            <li class="chip">Visio</li><li class="chip">Installation &amp; Troubleshooting</li>
+            <li class="chip">Authentication</li><li class="chip">Access control</li><li class="chip">MFA / OTP</li>
+            <li class="chip">Security fundamentals</li><li class="chip">Git / GitHub</li><li class="chip">VS Code</li>
           </ul>
         </div>
-      </div>
-
-      <div class="reveal panel mt-5 flex flex-wrap items-center gap-x-10 gap-y-5 p-7">
-        <span class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Professional attributes</span>
-        <ul class="flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-brand-charcoal">
-          <li class="flex items-center gap-2.5"><span class="h-2 w-2 rounded-full bg-black"></span>Professional</li>
-          <li class="flex items-center gap-2.5"><span class="h-2 w-2 rounded-full bg-black"></span>Detail oriented</li>
-          <li class="flex items-center gap-2.5"><span class="h-2 w-2 rounded-full bg-black"></span>Punctual</li>
-          <li class="flex items-center gap-2.5"><span class="h-2 w-2 rounded-full bg-black"></span>Always willing to learn</li>
-        </ul>
       </div>
     </section>
 
@@ -482,7 +363,7 @@ secure application development</span>
           <p class="reveal text-[11px] font-bold uppercase tracking-widest text-gray-400">03 — Selected work</p>
           <h2 class="reveal mt-4 text-4xl font-extrabold tracking-tight text-brand-black sm:text-5xl">Projects</h2>
           <p class="reveal mt-6 text-lg leading-relaxed text-brand-slate">
-            Built through my Computer Science course and personal exploration — drawn from my public GitHub repositories.
+            Selected academic and personal work, including my Computer Science Honours research project and practical software-development projects.
           </p>
         </div>
         <div class="reveal flex flex-wrap justify-center gap-2.5" role="tablist" aria-label="Filter projects">
@@ -500,15 +381,16 @@ secure application development</span>
           <div class="p-7 flex flex-col flex-1">
             <div class="flex items-start justify-between gap-4">
               <span class="text-[11px] font-bold text-gray-400">01</span>
-              <span class="rounded-lg border border-gray-200 bg-brand-light px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-brand-charcoal">Security · Payments</span>
+              <span class="rounded-lg border border-gray-200 bg-brand-light px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-brand-charcoal">Honours thesis · FinTech</span>
             </div>
-            <h3 class="mt-6 text-xl font-bold text-brand-black">QR_Pay</h3>
+            <h3 class="mt-6 text-xl font-bold text-brand-black">QR-Based Mobile Payment Prototype</h3>
             <p class="mt-4 flex-1 text-sm leading-relaxed text-brand-slate">
-              A secure, cross-platform mobile payment prototype using dynamic QR codes for seamless cross-bank,
-              peer-to-peer transactions — designed to reduce cash dependency.
+              My 2026 Computer Science Honours thesis project: a cross-platform prototype designed and evaluated to explore
+              how QR-code-based mobile payments could reduce cash dependency in Namibia. It simulates peer-to-peer and
+              merchant payment workflows using dynamic QR codes and sandbox payment infrastructure.
             </p>
             <ul class="mt-6 flex flex-wrap gap-2">
-              <li class="chip">JavaScript</li><li class="chip">Cross-platform</li><li class="chip">Payments</li>
+              <li class="chip">React Native</li><li class="chip">Expo</li><li class="chip">Firebase</li><li class="chip">Node.js</li><li class="chip">Stripe Sandbox</li>
             </ul>
             <a href="https://github.com/ANShishiveni/QR_Pay" target="_blank" rel="noopener noreferrer"
                class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-black transition hover:text-gray-600">
@@ -533,7 +415,7 @@ secure application development</span>
               monitoring dashboard.
             </p>
             <ul class="mt-6 flex flex-wrap gap-2">
-              <li class="chip">Python</li><li class="chip">NLP</li><li class="chip">Dashboard</li>
+              <li class="chip">Python</li><li class="chip">Flask</li><li class="chip">NLTK</li><li class="chip">SQLAlchemy</li><li class="chip">SymPy</li>
             </ul>
             <a href="https://github.com/ANShishiveni/NLP_Quiz_Generator" target="_blank" rel="noopener noreferrer"
                class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-black transition hover:text-gray-600">
@@ -557,7 +439,7 @@ secure application development</span>
               workflows — built around structured data handling and reliable CRUD operations.
             </p>
             <ul class="mt-6 flex flex-wrap gap-2">
-              <li class="chip">Database</li><li class="chip">Records</li><li class="chip">Desktop app</li>
+              <li class="chip">Python</li><li class="chip">Flask</li><li class="chip">SQLite</li><li class="chip">Bootstrap</li>
             </ul>
             <a href="https://github.com/ANShishiveni/hospital_app" target="_blank" rel="noopener noreferrer"
                class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-black transition hover:text-gray-600">
@@ -577,11 +459,11 @@ secure application development</span>
             </div>
             <h3 class="mt-6 text-xl font-bold text-brand-black">Hotel Booking System</h3>
             <p class="mt-4 flex-1 text-sm leading-relaxed text-brand-slate">
-              A platform for booking rooms, managing reservations and processing payments — focused on smooth
-              availability handling and a clear booking flow.
+              A Flask-based booking system exploring reservations, availability checks, authentication, database-backed
+              workflows and payment integration in a Namibia-focused hotel-booking context.
             </p>
             <ul class="mt-6 flex flex-wrap gap-2">
-              <li class="chip">Reservations</li><li class="chip">Payments</li><li class="chip">Web app</li>
+              <li class="chip">Flask</li><li class="chip">SQLAlchemy</li><li class="chip">PostgreSQL</li><li class="chip">REST API</li>
             </ul>
             <a href="https://github.com/ANShishiveni/Hotel-Booking-System" target="_blank" rel="noopener noreferrer"
                class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-black transition hover:text-gray-600">
@@ -601,11 +483,11 @@ secure application development</span>
             </div>
             <h3 class="mt-6 text-xl font-bold text-brand-black">Ace-Tech Website</h3>
             <p class="mt-4 flex-1 text-sm leading-relaxed text-brand-slate">
-              A responsive front-end website build for a technology brand — practising layout, component structure and
-              mobile-first styling.
+              A small-business consulting website with a responsive front end and a PHP/MySQL consultation-booking flow,
+              including server-side validation and database-backed form submission.
             </p>
             <ul class="mt-6 flex flex-wrap gap-2">
-              <li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">Responsive</li>
+              <li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">JavaScript</li><li class="chip">PHP</li><li class="chip">MySQL</li>
             </ul>
             <a href="https://github.com/ANShishiveni/Ace-Tech-Website" target="_blank" rel="noopener noreferrer"
                class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-black transition hover:text-gray-600">
@@ -620,8 +502,8 @@ secure application development</span>
           <div>
             <h3 class="text-xl font-bold text-brand-black">More on GitHub</h3>
             <p class="mt-4 text-sm leading-relaxed text-brand-slate">
-              All repositories are public — including the source of this portfolio site. Pull requests, issues and
-              feedback are welcome.
+              Explore my public repositories, including the source of this portfolio site. Selected projects include
+              documentation, setup instructions and implementation details.
             </p>
           </div>
           <a href="https://github.com/ANShishiveni?tab=repositories" target="_blank" rel="noopener noreferrer"
@@ -639,8 +521,8 @@ secure application development</span>
         <p class="reveal text-[11px] font-bold uppercase tracking-widest text-gray-400">04 — Credentials</p>
         <h2 class="reveal mt-4 text-4xl font-extrabold tracking-tight text-brand-black sm:text-5xl">Certifications &amp; education</h2>
         <p class="reveal mt-6 text-lg leading-relaxed text-brand-slate">
-          Industry certifications from ISC2 and the Cisco Networking Academy, alongside my Honours degree. Expand any
-          entry for the full course outline.
+          My degree and selected industry credentials. Cisco entries below are Networking Academy courses and badges,
+          while ISC2 Certified in Cybersecurity (CC) is my professional certification.
         </p>
       </div>
 
@@ -665,10 +547,8 @@ secure application development</span>
                   </div>
                 </summary>
                 <p class="mt-4 sm:mt-5 sm:pl-14 text-sm leading-relaxed text-brand-slate">
-                  The vendor-neutral CC credential starts newcomers on their path to advanced cybersecurity
-                  certifications and future leadership roles. It proves that newly certified team members understand
-                  fundamental security principles and operations, network security and access controls — and that they
-                  have the skills to meet and exceed performance standards in their beginning roles.
+                  Vendor-neutral certification covering security principles, business continuity and incident response,
+                  access controls, network security and security operations.
                 </p>
               </details>
             </li>
@@ -792,7 +672,7 @@ secure application development</span>
             <p class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Education</p>
             <h3 class="mt-4 text-xl font-bold text-brand-black">BSc Computer Science (Honours)</h3>
             <p class="mt-2 text-sm font-semibold text-brand-slate">University of Namibia</p>
-            <p class="mt-1 text-xs font-semibold uppercase tracking-widest text-gray-400">Windhoek, Khomas · Graduated 2026</p>
+            <p class="mt-1 text-xs font-semibold uppercase tracking-widest text-gray-400">Windhoek, Namibia · Graduated 2026</p>
             <div class="mt-6 border-t border-gray-200 pt-6">
               <p class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Key focus &amp; coursework</p>
               <ul class="mt-4 flex flex-wrap gap-2.5">
@@ -816,7 +696,11 @@ secure application development</span>
                 Security principles and operations, network security and access controls — the vendor-neutral
                 foundation for advanced cybersecurity certification.
               </p>
-              <p class="mt-5 text-[11px] font-bold uppercase tracking-widest text-gray-400">Also credentialed by Cisco.</p>
+              <a href="https://www.credly.com/users/absalom-shishiveni" target="_blank" rel="noopener noreferrer"
+                 class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-black transition hover:text-gray-600">
+                Verify credentials on Credly
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </a>
             </div>
           </div>
         </div>
@@ -829,11 +713,10 @@ secure application development</span>
         <div class="relative grid gap-12 lg:grid-cols-12">
           <div class="lg:col-span-7">
             <p class="text-[11px] font-bold uppercase tracking-widest text-gray-400">05 — Contact</p>
-            <h2 class="mt-4 text-4xl font-extrabold tracking-tight text-brand-black sm:text-5xl">Let's talk security, systems or code.</h2>
+            <h2 class="mt-4 text-4xl font-extrabold tracking-tight text-brand-black sm:text-5xl">Open to graduate and junior technology opportunities.</h2>
             <p class="mt-6 max-w-lg text-lg leading-relaxed text-brand-slate">
-              I'm open to graduate and junior roles in cybersecurity, secure software engineering and network systems —
-              and always happy to discuss a technical problem. Email is the fastest way to reach me; I usually reply
-              within a day.
+              I am interested in opportunities across software development, IT support, networking and cybersecurity
+              where I can contribute practical technical skills while continuing to grow professionally.
             </p>
             <div class="mt-10 flex flex-wrap gap-4">
               <a href="mailto:anshishiveni@gmail.com"
@@ -862,20 +745,20 @@ secure application development</span>
               </div>
               <div class="flex items-start gap-5 rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
                 <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-50 border border-gray-200 text-gray-500">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <svg viewBox="0 0 24 24" width="18" height="18" class="fill-current" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.55v-1.94c-3.2.7-3.88-1.54-3.88-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.06-.72.08-.7.08-.7 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.4-1.27.73-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.05.78 2.13v3.16c0 .3.2.66.8.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
                 </span>
                 <div>
-                  <dt class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Phone</dt>
-                  <dd class="mt-1.5 text-sm font-bold text-brand-charcoal"><a href="tel:+264816294914" class="transition hover:text-gray-500">+264 81 629 4914</a></dd>
+                  <dt class="text-[11px] font-bold uppercase tracking-widest text-gray-400">GitHub</dt>
+                  <dd class="mt-1.5 text-sm font-bold text-brand-charcoal"><a href="https://github.com/ANShishiveni" target="_blank" rel="noopener noreferrer" class="transition hover:text-gray-500">github.com/ANShishiveni</a></dd>
                 </div>
               </div>
               <div class="flex items-start gap-5 rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
                 <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-50 border border-gray-200 text-gray-500">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 5 3.4 7.7 8 9 4.6-1.3 8-4 8-9V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
                 </span>
                 <div>
-                  <dt class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Website</dt>
-                  <dd class="mt-1.5 text-sm font-bold text-brand-charcoal"><a href="https://anshishiveni.github.io/" target="_blank" rel="noopener noreferrer" class="transition hover:text-gray-500">anshishiveni.github.io</a></dd>
+                  <dt class="text-[11px] font-bold uppercase tracking-widest text-gray-400">Credentials</dt>
+                  <dd class="mt-1.5 text-sm font-bold text-brand-charcoal"><a href="https://www.credly.com/users/absalom-shishiveni" target="_blank" rel="noopener noreferrer" class="transition hover:text-gray-500">Verify on Credly</a></dd>
                 </div>
               </div>
             </dl>
@@ -897,7 +780,7 @@ secure application development</span>
         <img src="resources/profile.webp" alt="Absalom" width="40" height="40" loading="lazy" class="h-10 w-10 object-cover rounded-full border border-gray-200" />
         <div class="leading-tight">
           <p class="text-sm font-bold text-brand-charcoal">Absalom Ndinomwene Shishiveni</p>
-          <p class="mt-1 text-[11px] font-bold uppercase tracking-widest text-gray-400">Cybersecurity · Secure software · Network systems</p>
+          <p class="mt-1 text-[11px] font-bold uppercase tracking-widest text-gray-400">Software development · IT support · Networking · Cybersecurity</p>
         </div>
       </div>
       <div class="flex flex-wrap items-center gap-x-8 gap-y-3 text-[11px] font-bold uppercase tracking-widest text-gray-400">
@@ -914,143 +797,6 @@ secure application development</span>
   <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m-6 6 6-6 6 6"/></svg>
 </button>
 
-<script>
-  (function () {
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    /* year */
-    var y = document.getElementById('year');
-    if (y) y.textContent = new Date().getFullYear();
-
-    /* reveal on scroll */
-    var revealables = document.querySelectorAll('.reveal');
-    if (reduce || !('IntersectionObserver' in window)) {
-      revealables.forEach(function (el) { el.classList.add('is-visible'); });
-    } else {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
-      revealables.forEach(function (el) { io.observe(el); });
-    }
-
-    /* mobile menu */
-    var menuBtn = document.getElementById('menuBtn');
-    var mobileMenu = document.getElementById('mobileMenu');
-    function closeMenu() {
-      mobileMenu.classList.add('hidden');
-      menuBtn.setAttribute('aria-expanded', 'false');
-    }
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', function () {
-        var open = mobileMenu.classList.toggle('hidden') === false;
-        menuBtn.setAttribute('aria-expanded', String(open));
-      });
-      mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
-    }
-
-    /* header elevation + back to top */
-    var header = document.getElementById('siteHeader');
-    var toTop = document.getElementById('toTop');
-    function onScroll() {
-      var sc = window.scrollY;
-      if (header) header.style.paddingBottom = sc > 10 ? '0' : '';
-      if (toTop) {
-        if (sc > 600) { toTop.classList.remove('hidden'); toTop.classList.add('grid'); }
-        else { toTop.classList.add('hidden'); toTop.classList.remove('grid'); }
-      }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    if (toTop) toTop.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
-    });
-
-    /* active nav link */
-    var navLinks = Array.prototype.slice.call(document.querySelectorAll('[data-nav]'));
-    var sections = navLinks.map(function (l) { return document.querySelector(l.getAttribute('href')); }).filter(Boolean);
-    if (sections.length && 'IntersectionObserver' in window) {
-      var spy = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (!e.isIntersecting) return;
-          navLinks.forEach(function (l) {
-            var active = l.getAttribute('href') === '#' + e.target.id;
-            l.classList.toggle('text-brand-charcoal', active);
-            l.classList.toggle('bg-gray-100', active);
-            l.classList.toggle('text-gray-500', !active);
-          });
-        });
-      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-      sections.forEach(function (s) { spy.observe(s); });
-    }
-
-    /* project filter */
-    var filterBtns = document.querySelectorAll('.filter-btn');
-    var projects = document.querySelectorAll('.project');
-    filterBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var f = btn.getAttribute('data-filter');
-        filterBtns.forEach(function (b) {
-          var on = b === btn;
-          b.classList.toggle('is-active', on);
-          b.setAttribute('aria-selected', String(on));
-        });
-        projects.forEach(function (card) {
-          var show = f === 'all' || card.getAttribute('data-cat') === f || card.getAttribute('data-cat') === 'all';
-          card.classList.toggle('is-hidden', !show);
-          if (show) card.classList.add('is-visible');
-        });
-      });
-    });
-
-    /* copy email */
-    document.querySelectorAll('[data-copy]').forEach(function (btn) {
-      var label = btn.querySelector('[data-copy-label]');
-      var original = label ? label.textContent : null;
-      btn.addEventListener('click', function () {
-        var text = btn.getAttribute('data-copy');
-        function done() {
-          if (!label) return;
-          label.textContent = 'Copied to clipboard';
-          window.setTimeout(function () { label.textContent = original; }, 2200);
-        }
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(done).catch(function () { label && (label.textContent = text); });
-        } else if (label) {
-          label.textContent = text;
-        }
-      });
-    });
-
-    /* Project Card Spotlight */
-    document.querySelectorAll('.project').forEach(function(card) {
-      card.addEventListener('mousemove', function(e) {
-        var rect = card.getBoundingClientRect();
-        var x = e.clientX - rect.left;
-        var y = e.clientY - rect.top;
-        card.style.setProperty('--x', x + 'px');
-        card.style.setProperty('--y', y + 'px');
-      });
-    });
-
-    /* Magnetic Buttons */
-    document.querySelectorAll('.magnetic-btn').forEach(function(btn) {
-      btn.addEventListener('mousemove', function(e) {
-        var rect = btn.getBoundingClientRect();
-        var h = rect.width / 2;
-        var v = rect.height / 2;
-        var x = e.clientX - rect.left - h;
-        var y = e.clientY - rect.top - v;
-        btn.style.transform = 'translate(' + (x * 0.15) + 'px, ' + (y * 0.15) + 'px)';
-      });
-      btn.addEventListener('mouseleave', function() {
-        btn.style.transform = 'translate(0px, 0px)';
-      });
-    });
-
-  })();
-</script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>

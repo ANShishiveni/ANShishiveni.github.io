@@ -5,7 +5,7 @@ Param(
 Write-Host "Checking asset references in" $Root
 
 $htmlPath = Join-Path $Root "index.html"
-$cssPath = Join-Path $Root "style.css"
+$cssPath = Join-Path $Root "assets/css/styles.css"
 
 if (!(Test-Path $htmlPath)) {
     Write-Error "index.html not found at $htmlPath"
